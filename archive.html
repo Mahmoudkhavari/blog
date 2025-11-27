@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>آرشیو نوشته‌ها</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="page-wrapper">
+  <main class="notebook">
+    <div class="notebook-inner">
+
+      <header class="site-header">
+        <div class="site-header-top">
+          <div class="title-block">
+            <h1>آرشیو نوشته‌ها</h1>
+            <p>لیست همه‌ی شعرها، یادداشت‌ها و خاطره‌ها به ترتیب تاریخ.</p>
+          </div>
+
+          <div class="header-actions">
+            <div class="date-badge">
+              آخرین بروزرسانی: ۱۴۰۴/۰۹/۰۶
+            </div>
+            <button class="theme-toggle" id="themeToggle" type="button" aria-label="تغییر حالت روشن و تاریک">
+              <span class="toggle-label" id="themeText">حالت روشن</span>
+              <span class="toggle-track">
+                <span class="toggle-thumb"></span>
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <nav class="main-nav">
+          <a href="index.html" class="nav-link">خانه</a>
+          <a href="about.html" class="nav-link">درباره من</a>
+          <a href="archive.html" class="nav-link nav-active">آرشیو</a>
+        </nav>
+      </header>
+
+      <!-- آرشیو ساده براساس داده‌های فعلی -->
+      <section>
+        <h2 style="font-size:1rem; margin-bottom:0.5rem;">۱۴۰۴</h2>
+        <ul class="archive-list">
+
+          <li class="archive-item">
+            <span class="archive-date">۱۴۰۴/۰۹/۰۳</span>
+            <span class="archive-tag">یادداشت</span>
+            <a href="index.html#post-14040903-note">یادداشت کوتاه شبانه</a>
+          </li>
+
+          <li class="archive-item">
+            <span class="archive-date">۱۴۰۴/۰۹/۰۱</span>
+            <span class="archive-tag">شعر</span>
+            <a href="index.html#post-14040901-poem">شعر: تویی آغاز هر لبخند</a>
+          </li>
+
+          <li class="archive-item">
+            <span class="archive-date">۱۴۰۴/۰۸/۲۹</span>
+            <span class="archive-tag">خاطره</span>
+            <a href="index.html#post-14040829-memory">یک عصر پاییزی آرام</a>
+          </li>
+
+          <!-- هر پست جدید که به index اضافه کردی، اینجا هم به همین شکل اضافه کن -->
+          <!-- مثال:
+          <li class="archive-item">
+            <span class="archive-date">۱۴۰۴/۰۹/۱۰</span>
+            <span class="archive-tag">شعر</span>
+            <a href="index.html#post-۱۴۰۴۰۹۱۰-poem">عنوان شعر جدید</a>
+          </li>
+          -->
+        </ul>
+      </section>
+
+      <footer class="site-footer">
+        <span>لیست آرشیو بر اساس پست‌های صفحه‌ی اصلی ساخته شده است.</span>
+        <span><a href="index.html">برگشت به صفحه‌ی اصلی</a></span>
+      </footer>
+
+    </div>
+  </main>
+</div>
+
+<button class="back-to-top" id="backToTop" type="button" aria-label="بازگشت به بالای صفحه">
+  <span>⬆️</span>
+  <span>بالای صفحه</span>
+</button>
+
+<script>
+  (function () {
+    const body = document.body;
+    const toggleBtn = document.getElementById("themeToggle");
+    const themeText = document.getElementById("themeText");
+
+    function applyTheme(theme) {
+      if (theme === "dark") {
+        body.classList.add("dark");
+        themeText.textContent = "حالت تاریک";
+      } else {
+        body.classList.remove("dark");
+        themeText.textContent = "حالت روشن";
+      }
+    }
+
+    const savedTheme = localStorage.getItem("diary-theme");
+    if (savedTheme === "dark" || savedTheme === "light") {
+      applyTheme(savedTheme);
+    } else {
+      const prefersDark = window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches;
+      applyTheme(prefersDark ? "dark" : "light");
+    }
+
+    toggleBtn.addEventListener("click", function () {
+      const currentIsDark = body.classList.contains("dark");
+      const newTheme = currentIsDark ? "light" : "dark";
+      applyTheme(newTheme);
+      localStorage.setItem("diary-theme", newTheme);
+    });
+  })();
+
+  (function () {
+    const backBtn = document.getElementById("backToTop");
+
+    window.addEventListener("scroll", function () {
+      if (window.scrollY > 200) {
+        backBtn.classList.add("show");
+      } else {
+        backBtn.classList.remove("show");
+      }
+    });
+
+    backBtn.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  })();
+</script>
+
+</body>
+</html>

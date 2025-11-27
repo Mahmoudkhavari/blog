@@ -1,0 +1,599 @@
+/* ===== پایه ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* فونت فارسی زیبا و استاندارد (Vazirmatn) */
+@import url("https://cdn.jsdelivr.net/npm/vazirmatn@33.003/dist/font-face.css");
+
+:root {
+  --bg-body: #f5f2ee;
+  --bg-notebook: #fffdf7;
+  --bg-post: rgba(255, 255, 255, 0.95);
+  --bg-post-alt: #f9fafb;
+  --text-main: #1f2933;
+  --text-muted: #6b7280;
+  --border-soft: rgba(15, 23, 42, 0.12);
+  --border-post: rgba(148, 163, 184, 0.5);
+  --accent-red: #f97373;
+  --accent-yellow: #facc15;
+  --accent-soft: #fef3c7;
+  --shadow-soft: 0 15px 35px rgba(0, 0, 0, 0.08);
+
+  --footer-chip-bg: #f3f4ff;
+  --footer-chip-border: #818cf8;
+  --footer-chip-hover-bg: #eef2ff;
+
+  --nav-bg: rgba(255, 255, 255, 0.8);
+  --nav-border: rgba(148, 163, 184, 0.5);
+}
+
+body.dark {
+  --bg-body: #020617;
+  --bg-notebook: #020617;
+  --bg-post: rgba(15, 23, 42, 0.98);
+  --bg-post-alt: #020617;
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+  --border-soft: rgba(148, 163, 184, 0.4);
+  --border-post: rgba(148, 163, 184, 0.7);
+  --accent-red: #fb7185;
+  --accent-yellow: #fde047;
+  --accent-soft: rgba(252, 211, 77, 0.08);
+  --shadow-soft: 0 20px 40px rgba(15, 23, 42, 0.8);
+
+  --footer-chip-bg: rgba(30, 64, 175, 0.37);
+  --footer-chip-border: #a5b4fc;
+  --footer-chip-hover-bg: rgba(129, 140, 248, 0.55);
+
+  --nav-bg: rgba(15, 23, 42, 0.9);
+  --nav-border: rgba(75, 85, 99, 0.9);
+}
+
+body {
+  font-family: "Vazirmatn", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg-body);
+  color: var(--text-main);
+  line-height: 1.9;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+/* ===== لایه کلی دفتر ===== */
+
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.notebook {
+  background: var(--bg-notebook);
+  max-width: 900px;
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--border-soft);
+  overflow: hidden;
+  position: relative;
+}
+
+/* خطوط دفتر */
+.notebook::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(148, 163, 184, 0.22) 1px,
+    transparent 1px
+  );
+  background-size: 100% 38px;
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.notebook-inner {
+  position: relative;
+  z-index: 1;
+  padding: 1.5rem;
+}
+
+/* ===== هدر و ناوبری ===== */
+
+.site-header {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.site-header-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title-block h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.title-block p {
+  font-size: 0.9rem;
+  opacity: 0.85;
+  margin-top: 0.25rem;
+}
+
+.header-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.4rem;
+}
+
+.date-badge {
+  background: var(--accent-red);
+  color: #fff;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  box-shadow: 0 4px 10px rgba(248, 113, 113, 0.55);
+  white-space: nowrap;
+}
+
+/* دکمه شب/روز (بهتر و سوئیچی) */
+.theme-toggle {
+  border-radius: 999px;
+  border: 1px solid var(--border-soft);
+  padding: 0.2rem 0.6rem;
+  font-size: 0.8rem;
+  background: var(--bg-post-alt);
+  color: var(--text-main);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.12);
+  outline: none;
+}
+
+.theme-toggle:active {
+  transform: scale(0.97);
+  box-shadow: none;
+}
+
+.theme-toggle .toggle-label {
+  min-width: 72px;
+  text-align: right;
+}
+
+.theme-toggle .toggle-track {
+  width: 38px;
+  height: 20px;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.4);
+  position: relative;
+  transition: background 0.2s ease;
+}
+
+.theme-toggle .toggle-thumb {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background: #f9fafb;
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.4);
+  transition: transform 0.22s ease;
+}
+
+body.dark .theme-toggle .toggle-track {
+  background: rgba(129, 140, 248, 0.85);
+}
+
+body.dark .theme-toggle .toggle-thumb {
+  transform: translateX(-18px);
+}
+
+/* ناوبری بالا */
+
+.main-nav {
+  margin-top: 0.9rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.4rem;
+  border-radius: 999px;
+  background: var(--nav-bg);
+  border: 1px solid var(--nav-border);
+  backdrop-filter: blur(6px);
+}
+
+.nav-link {
+  font-size: 0.85rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--text-muted);
+  border: 1px solid transparent;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+}
+
+.nav-link:hover {
+  background: rgba(148, 163, 184, 0.15);
+  color: var(--text-main);
+  transform: translateY(-1px);
+}
+
+.nav-link.nav-active {
+  background: var(--accent-soft);
+  border-color: var(--accent-yellow);
+  color: #92400e;
+}
+
+body.dark .nav-link.nav-active {
+  background: rgba(234, 179, 8, 0.22);
+  color: #facc15;
+}
+
+/* ===== دسته‌بندی حرفه‌ای ===== */
+
+.category-filter {
+  margin: 1rem 0 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.category-btn {
+  font-size: 0.8rem;
+  border-radius: 999px;
+  padding: 0.25rem 0.9rem;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  background: rgba(248, 250, 252, 0.85);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.category-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.18);
+}
+
+.category-btn.active {
+  background: var(--accent-soft);
+  color: #92400e;
+  border-color: var(--accent-yellow);
+}
+
+body.dark .category-btn {
+  background: rgba(15, 23, 42, 0.9);
+}
+
+body.dark .category-btn.active {
+  background: rgba(234, 179, 8, 0.17);
+  color: #facc15;
+}
+
+/* ===== پست‌ها ===== */
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.post {
+  background: var(--bg-post);
+  border-radius: 14px;
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--border-post);
+  backdrop-filter: blur(4px);
+  position: relative;
+  opacity: 0;
+  transform: translateY(8px);
+  animation: fadeUp 0.55s ease forwards;
+}
+
+/* تاخیر جزئی برای هر پست */
+.post:nth-child(1) { animation-delay: 0.04s; }
+.post:nth-child(2) { animation-delay: 0.08s; }
+.post:nth-child(3) { animation-delay: 0.12s; }
+.post:nth-child(4) { animation-delay: 0.16s; }
+/* اگر زیاد شد، می‌تونی ادامه بدی یا همینقدر بمونه */
+
+.post::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 14px;
+  width: 6px;
+  height: 70%;
+  background: linear-gradient(180deg, var(--accent-red), var(--accent-yellow));
+  border-radius: 999px;
+  opacity: 0.7;
+}
+
+.post-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.post-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+}
+
+.post-date {
+  padding: 0.2rem 0.6rem;
+  background: var(--accent-soft);
+  border-radius: 999px;
+  border: 1px solid var(--accent-yellow);
+}
+
+.post-tag {
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  border: 1px dashed #c4b5fd;
+  background: rgba(245, 243, 255, 0.9);
+}
+
+body.dark .post-tag {
+  border-color: #a5b4fc;
+  background: rgba(30, 64, 175, 0.3);
+}
+
+.post-content {
+  font-size: 0.95rem;
+  margin-top: 0.3rem;
+  white-space: pre-line;
+}
+
+.post.poem .post-content span {
+  display: block;
+}
+
+/* استایل ویژه برای متن آخر پست */
+
+.post-footer {
+  margin-top: 0.9rem;
+  font-size: 0.8rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  border: 1px dashed var(--footer-chip-border);
+  background: var(--footer-chip-bg);
+  color: var(--text-main);
+  cursor: default;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+
+  float: left;  /* سمت چپ کارت */
+  clear: both;
+}
+
+.post-footer:hover {
+  background: var(--footer-chip-hover-bg);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.18);
+}
+
+/* پست‌هایی که با فیلتر پنهان می‌شن */
+.post.hidden-by-filter {
+  display: none;
+}
+
+/* ===== فوتر سایت ===== */
+
+.site-footer {
+  margin-top: 1.5rem;
+  padding-top: 0.8rem;
+  border-top: 1px dashed var(--border-soft);
+  font-size: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  color: var(--text-muted);
+}
+
+.site-footer a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dotted currentColor;
+}
+
+/* ===== دکمه بازگشت به بالا ===== */
+
+.back-to-top {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-post);
+  background: var(--bg-post);
+  color: var(--text-main);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.28);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease, background 0.2s ease;
+  z-index: 20;
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:active {
+  transform: scale(0.97);
+  box-shadow: none;
+}
+
+/* ===== صفحه درباره من ===== */
+
+.about-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.about-card {
+  background: var(--bg-post);
+  border-radius: 16px;
+  padding: 1.2rem 1.3rem;
+  border: 1px solid var(--border-post);
+}
+
+.about-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 999px;
+  border: 2px dashed var(--border-post);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin-bottom: 0.6rem;
+}
+
+.about-card h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+}
+
+.about-card p {
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+}
+
+/* ===== صفحه آرشیو ===== */
+
+.archive-list {
+  list-style: none;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+}
+
+.archive-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.6rem;
+  border-radius: 10px;
+  background: var(--bg-post);
+  border: 1px dashed var(--border-soft);
+}
+
+.archive-date {
+  font-family: inherit;
+  font-size: 0.8rem;
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-yellow);
+}
+
+.archive-tag {
+  font-size: 0.75rem;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  border: 1px dashed #c4b5fd;
+}
+
+.archive-item a {
+  text-decoration: none;
+  color: var(--text-main);
+}
+
+.archive-item a:hover {
+  text-decoration: underline;
+}
+
+
+/* ===== انیمیشن ملایم ===== */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== ریسپانسیو ===== */
+
+@media (max-width: 640px) {
+  .notebook-inner {
+    padding: 1rem;
+  }
+
+  .site-header-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .title-block h1 {
+    font-size: 1.4rem;
+  }
+
+  .header-actions {
+    align-items: flex-start;
+  }
+
+  .post {
+    padding: 0.8rem 0.9rem;
+  }
+
+  .post::before {
+    display: false;
+  }
+
+  .back-to-top {
+    bottom: 1rem;
+    left: 1rem;
+    font-size: 0.8rem;
+    padding: 0.5rem 0.7rem;
+  }
+}
