@@ -4,6 +4,16 @@
   <meta charset="UTF-8">
   <title>دفتر خاطرات من</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- PWA: manifest -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#4a90e2">
+
+  <!-- iOS support -->
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -1551,85 +1561,72 @@
   <span>⬆️</span>
   <span>بالای صفحه</span>
 </button>
-
 <script>
-  // ---- مدیریت تم روشن/تاریک ----
+  // تم روشن/تاریک
   (function () {
     const body = document.body;
-    const toggleBtn = document.getElementById("themeToggle");
     const themeText = document.getElementById("themeText");
+    const savedTheme = localStorage.getItem("diary-theme");
+    const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
 
     function applyTheme(theme) {
-      if (theme === "dark") {
-        body.classList.add("dark");
-        themeText.textContent = "حالت تاریک";
-      } else {
-        body.classList.remove("dark");
-        themeText.textContent = "حالت روشن";
-      }
+      body.classList.toggle("dark", theme === "dark");
+      themeText.textContent = theme === "dark" ? "حالت تاریک" : "حالت روشن";
     }
+    applyTheme(savedTheme || (prefersDark ? "dark" : "light"));
 
-    const savedTheme = localStorage.getItem("diary-theme");
-    if (savedTheme === "dark" || savedTheme === "light") {
-      applyTheme(savedTheme);
-    } else {
-      const prefersDark = window.matchMedia &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches;
-      applyTheme(prefersDark ? "dark" : "light");
-    }
-
-    toggleBtn.addEventListener("click", function () {
-      const currentIsDark = body.classList.contains("dark");
-      const newTheme = currentIsDark ? "light" : "dark";
-      applyTheme(newTheme);
-      localStorage.setItem("diary-theme", newTheme);
+    document.getElementById("themeToggle").addEventListener("click", () => {
+      const next = body.classList.contains("dark") ? "light" : "dark";
+      applyTheme(next);
+      localStorage.setItem("diary-theme", next);
     });
   })();
 
-  // ---- دکمه بازگشت به بالا ----
+  // بازگشت به بالا
   (function () {
     const backBtn = document.getElementById("backToTop");
-
-    window.addEventListener("scroll", function () {
-      if (window.scrollY > 200) {
-        backBtn.classList.add("show");
-      } else {
-        backBtn.classList.remove("show");
-      }
-    });
-
-    backBtn.addEventListener("click", function () {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
+    window.addEventListener("scroll", () => backBtn.classList.toggle("show", window.scrollY > 200));
+    backBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
   })();
 
-  // ---- دسته‌بندی حرفه‌ای (فیلتر پست‌ها) ----
+  // فیلتر دسته‌بندی
   (function () {
-    const buttons = document.querySelectorAll(".category-btn");
-    const posts = document.querySelectorAll(".post");
-
-    buttons.forEach(function (btn) {
-      btn.addEventListener("click", function () {
+    document.querySelectorAll(".category-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
         const filter = btn.dataset.filter;
-
-        buttons.forEach(b => b.classList.remove("active"));
+        document.querySelectorAll(".category-btn").forEach(b => b.classList.remove("active"));
         btn.classList.add("active");
-
-        posts.forEach(function (post) {
-          const cat = post.dataset.category;
-          if (filter === "all" || filter === cat) {
-            post.classList.remove("hidden-by-filter");
-          } else {
-            post.classList.add("hidden-by-filter");
-          }
-        });
+        document.querySelectorAll(".post").forEach(post => post.classList.toggle("hidden-by-filter", filter !== "all" && post.dataset.category !== filter));
       });
     });
   })();
 </script>
 
+<!-- PWA نصب -->
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js'));
+}
+
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault();
+  deferredPrompt = e;
+  const btn = document.createElement('button');
+  btn.textContent = '📲 نصب اپ';
+  btn.className = "install-btn";
+  document.body.appendChild(btn);
+  btn.addEventListener('click', () => {
+    btn.remove();
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.finally(() => deferredPrompt = null);
+  });
+});
+</script>
+
 </body>
 </html>
+
 
 
 
