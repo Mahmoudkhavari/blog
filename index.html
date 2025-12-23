@@ -1654,26 +1654,38 @@
   const toggleBtn = document.getElementById("toggle-btn");
   const nextBtn = document.getElementById("next-btn");
 
+  let firstActivated = false;
+
   function playRandom() {
-    const randomIndex = Math.floor(Math.random() * tracks.length);
-    audio.src = tracks[randomIndex];
+    const rand = Math.floor(Math.random() * tracks.length);
+    audio.src = tracks[rand];
     audio.play().catch(() => {});
     toggleBtn.textContent = "⏸️";
   }
 
-  // شروع خودکار بعد از اولین تعامل کاربر — روی کل صفحه
-  function activateOnFirstInteraction() {
-    playRandom();
-    document.removeEventListener("click", activateOnFirstInteraction);
-    document.removeEventListener("touchstart", activateOnFirstInteraction);
+  // اجرای پخش در اولین کلیک
+  function activateMusicFirst(e) {
+    // جلوگیری از اینکه این کلیک روی دکمه‌ها اثر بگذارد
+    if (e.target === toggleBtn || e.target === nextBtn) {
+      return;  // کلیک روی دکمه = نادیده گرفته شود
+    }
+
+    if (!firstActivated) {
+      firstActivated = true;
+      playRandom();
+
+      document.removeEventListener("click", activateMusicFirst);
+      document.removeEventListener("touchstart", activateMusicFirst);
+    }
   }
 
-  // گوش می‌دهد به کلیک صفحه
-  document.addEventListener("click", activateOnFirstInteraction);
-  document.addEventListener("touchstart", activateOnFirstInteraction);
+  document.addEventListener("click", activateMusicFirst);
+  document.addEventListener("touchstart", activateMusicFirst);
 
   // دکمه پخش/توقف
   toggleBtn.onclick = () => {
+    if (!firstActivated) return; // تا فعال نشده، کاری نکند
+
     if (audio.paused) {
       audio.play();
       toggleBtn.textContent = "⏸️";
@@ -1683,8 +1695,11 @@
     }
   };
 
-  // آهنگ بعدی
-  nextBtn.onclick = playRandom;
+  // دکمه آهنگ بعدی
+  nextBtn.onclick = () => {
+    if (!firstActivated) return;
+    playRandom();
+  };
 
   audio.onended = playRandom;
   // تم روشن/تاریک
@@ -1751,6 +1766,7 @@ window.addEventListener('beforeinstallprompt', e => {
 
 </body>
 </html>
+
 
 
 
