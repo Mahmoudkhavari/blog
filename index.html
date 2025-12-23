@@ -1654,15 +1654,24 @@
   const toggleBtn = document.getElementById("toggle-btn");
   const nextBtn = document.getElementById("next-btn");
 
-  // انتخاب تصادفی آهنگ
   function playRandom() {
     const randomIndex = Math.floor(Math.random() * tracks.length);
     audio.src = tracks[randomIndex];
-    audio.play();
+    audio.play().catch(err => {});
     toggleBtn.textContent = "⏸️";
   }
 
-  // دکمه پخش/توقف
+  // فعال‌سازی پخش پس از اولین کلیک کاربر
+  function enableAutoplayOnce() {
+    playRandom();
+    window.removeEventListener("click", enableAutoplayOnce);
+    window.removeEventListener("touchstart", enableAutoplayOnce);
+  }
+
+  window.addEventListener("click", enableAutoplayOnce);
+  window.addEventListener("touchstart", enableAutoplayOnce);
+
+  // دکمه توقف/پخش
   toggleBtn.onclick = () => {
     if (audio.paused) {
       audio.play();
@@ -1673,16 +1682,10 @@
     }
   };
 
-  // دکمه آهنگ بعدی رندوم
+  // دکمه آهنگ رندوم
   nextBtn.onclick = () => playRandom();
 
-  // وقتی آهنگ تمام شد → آهنگ جدید
   audio.onended = playRandom;
-
-  // شروع کار
-  window.addEventListener("load", () => {
-    playRandom();
-  });
   // تم روشن/تاریک
   (function () {
     const body = document.body;
@@ -1747,6 +1750,7 @@ window.addEventListener('beforeinstallprompt', e => {
 
 </body>
 </html>
+
 
 
 
