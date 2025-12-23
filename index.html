@@ -1633,7 +1633,7 @@
 </button>
 <script>
   // لیست آهنگ‌ها
- const tracks = [
+  const tracks = [
     "https://raw.githubusercontent.com/Mahmoudkhavari/blog/refs/heads/main/Music/1.mp3",
     "https://raw.githubusercontent.com/Mahmoudkhavari/blog/refs/heads/main/Music/2.mp3",
     "https://raw.githubusercontent.com/Mahmoudkhavari/blog/refs/heads/main/Music/3.mp3",
@@ -1661,16 +1661,18 @@
     toggleBtn.textContent = "⏸️";
   }
 
-  // اولین تعامل کاربر → شروع پخش
-  function enableAutoplayOnce() {
+  // شروع خودکار بعد از اولین تعامل کاربر — روی کل صفحه
+  function activateOnFirstInteraction() {
     playRandom();
-    window.removeEventListener("click", enableAutoplayOnce);
-    window.removeEventListener("touchstart", enableAutoplayOnce);
+    document.removeEventListener("click", activateOnFirstInteraction);
+    document.removeEventListener("touchstart", activateOnFirstInteraction);
   }
 
-  window.addEventListener("click", enableAutoplayOnce);
-  window.addEventListener("touchstart", enableAutoplayOnce);
+  // گوش می‌دهد به کلیک صفحه
+  document.addEventListener("click", activateOnFirstInteraction);
+  document.addEventListener("touchstart", activateOnFirstInteraction);
 
+  // دکمه پخش/توقف
   toggleBtn.onclick = () => {
     if (audio.paused) {
       audio.play();
@@ -1681,7 +1683,8 @@
     }
   };
 
-  nextBtn.onclick = () => playRandom();
+  // آهنگ بعدی
+  nextBtn.onclick = playRandom;
 
   audio.onended = playRandom;
   // تم روشن/تاریک
@@ -1748,6 +1751,7 @@ window.addEventListener('beforeinstallprompt', e => {
 
 </body>
 </html>
+
 
 
 
