@@ -1771,38 +1771,24 @@
   const toggleBtn = document.getElementById("toggle-btn");
   const nextBtn = document.getElementById("next-btn");
 
-  let firstActivated = false;
-
   function playRandom() {
-    const rand = Math.floor(Math.random() * tracks.length);
-    audio.src = tracks[rand];
+    const randomIndex = Math.floor(Math.random() * tracks.length);
+    audio.src = tracks[randomIndex];
     audio.play().catch(() => {});
     toggleBtn.textContent = "⏸️";
   }
 
-  // اجرای پخش در اولین کلیک
-  function activateMusicFirst(e) {
-    // جلوگیری از اینکه این کلیک روی دکمه‌ها اثر بگذارد
-    if (e.target === toggleBtn || e.target === nextBtn) {
-      return;  // کلیک روی دکمه = نادیده گرفته شود
-    }
-
-    if (!firstActivated) {
-      firstActivated = true;
-      playRandom();
-
-      document.removeEventListener("click", activateMusicFirst);
-      document.removeEventListener("touchstart", activateMusicFirst);
-    }
+  // اولین تعامل کاربر → شروع پخش
+  function enableAutoplayOnce() {
+    playRandom();
+    window.removeEventListener("click", enableAutoplayOnce);
+    window.removeEventListener("touchstart", enableAutoplayOnce);
   }
 
-  document.addEventListener("click", activateMusicFirst);
-  document.addEventListener("touchstart", activateMusicFirst);
+  window.addEventListener("click", enableAutoplayOnce);
+  window.addEventListener("touchstart", enableAutoplayOnce);
 
-  // دکمه پخش/توقف
   toggleBtn.onclick = () => {
-    if (!firstActivated) return; // تا فعال نشده، کاری نکند
-
     if (audio.paused) {
       audio.play();
       toggleBtn.textContent = "⏸️";
@@ -1812,11 +1798,7 @@
     }
   };
 
-  // دکمه آهنگ بعدی
-  nextBtn.onclick = () => {
-    if (!firstActivated) return;
-    playRandom();
-  };
+  nextBtn.onclick = () => playRandom();
 
   audio.onended = playRandom;
   // تم روشن/تاریک
@@ -1883,6 +1865,7 @@ window.addEventListener('beforeinstallprompt', e => {
 
 </body>
 </html>
+
 
 
 
