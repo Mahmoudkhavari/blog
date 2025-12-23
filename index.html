@@ -17,7 +17,14 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<!-- Floating Music Player -->
+<div id="music-player">
+  <button id="toggle-btn">⏸️</button>
+  <button id="next-btn">⏭️</button>
+</div>
 
+<audio id="bg-music" autoplay></audio>
+  
 <div class="page-wrapper">
   <main class="notebook">
     <div class="notebook-inner">
@@ -1625,6 +1632,57 @@
   <span>بالای صفحه</span>
 </button>
 <script>
+  // لیست آهنگ‌ها
+  const tracks = [
+    "music/1.mp3",
+    "music/2.mp3",
+    "music/3.mp3",
+    "music/4.mp3",
+    "music/5.mp3",
+    "music/6.mp3",
+    "music/7.mp3",
+    "music/8.mp3",
+    "music/9.mp3",
+    "music/10.mp3",
+    "music/11.mp3",
+    "music/12.mp3",
+    "music/13.mp3",
+    "music/14.mp3"
+  ];
+
+  const audio = document.getElementById("bg-music");
+  const toggleBtn = document.getElementById("toggle-btn");
+  const nextBtn = document.getElementById("next-btn");
+
+  // انتخاب تصادفی آهنگ
+  function playRandom() {
+    const randomIndex = Math.floor(Math.random() * tracks.length);
+    audio.src = tracks[randomIndex];
+    audio.play();
+    toggleBtn.textContent = "⏸️";
+  }
+
+  // دکمه پخش/توقف
+  toggleBtn.onclick = () => {
+    if (audio.paused) {
+      audio.play();
+      toggleBtn.textContent = "⏸️";
+    } else {
+      audio.pause();
+      toggleBtn.textContent = "▶️";
+    }
+  };
+
+  // دکمه آهنگ بعدی رندوم
+  nextBtn.onclick = () => playRandom();
+
+  // وقتی آهنگ تمام شد → آهنگ جدید
+  audio.onended = playRandom;
+
+  // شروع کار
+  window.addEventListener("load", () => {
+    playRandom();
+  });
   // تم روشن/تاریک
   (function () {
     const body = document.body;
@@ -1689,6 +1747,7 @@ window.addEventListener('beforeinstallprompt', e => {
 
 </body>
 </html>
+
 
 
 
