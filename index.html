@@ -1,80 +1,114 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa" dir="rtl" data-theme="kraft">
 <head>
   <meta charset="UTF-8">
-  <title>دفتر خاطرات من</title>
+  <title>دفتر خاطرات و شعرهای من</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="google-site-verification" content="lLKFR3RpW9l94evnNTTjwUzE2w1hglJWkksU-WrJtC0" />
-  <!-- PWA: manifest -->
+  <meta name="description" content="دفتر خاطرات و شعرهای شخصی؛ یادداشت‌ها، خاطره‌ها و شعرهایی از دل زندگی روزمره.">
+  <meta name="google-site-verification" content="lLKFR3RpW9l94evnNTTjwUzE2w1hglJWkksU-WrJtC0" />
   <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#4a90e2">
-<link rel="icon" href="/icons/icon-192.png" sizes="192x192" type="image/png"
-  <!-- iOS support -->
+  <meta name="theme-color" content="#9c3b3b">
+  <link rel="icon" href="icons/icon-192.png" sizes="192x192" type="image/png">
   <link rel="apple-touch-icon" href="icons/icon-192.png">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<!-- Floating Music Player -->
-<div id="music-player">
-  <button id="toggle-btn">⏸️</button>
-  <button id="next-btn">⏭️</button>
-</div>
+<svg class="icon-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <symbol id="icon-home" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h5v-6h4v6h5V10"/></symbol>
+    <symbol id="icon-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></symbol>
+    <symbol id="icon-archive" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="4" rx="1"/><path d="M5 8v11a1 1 0 001 1h12a1 1 0 001-1V8"/><line x1="10" y1="13" x2="14" y2="13"/></symbol>
+    <symbol id="icon-palette" viewBox="0 0 24 24"><path d="M12 3a9 9 0 100 18c1.1 0 2-.9 2-2 0-.5-.2-1-.5-1.4-.3-.4-.5-.8-.5-1.3 0-1 .8-1.8 1.8-1.8H17a4 4 0 004-4c0-4.4-4-7.5-9-7.5Z"/><circle cx="7.5" cy="10.5" r="1" fill="currentColor" stroke="none"/><circle cx="10.5" cy="7.2" r="1" fill="currentColor" stroke="none"/><circle cx="15" cy="8" r="1" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="icon-feather" viewBox="0 0 24 24"><path d="M14.5 4.5l5 5L8 21H3v-5L14.5 4.5z"/><path d="M12.5 6.5l5 5"/></symbol>
+    <symbol id="icon-book" viewBox="0 0 24 24"><path d="M4 5c2-1 5-1 7 0v14c-2-1-5-1-7 0V5z"/><path d="M20 5c-2-1-5-1-7 0v14c2-1 5-1 7 0V5z"/></symbol>
+    <symbol id="icon-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M8 3v4M16 3v4"/></symbol>
+    <symbol id="icon-tag" viewBox="0 0 24 24"><path d="M20.6 12.9L12.9 20.6a2 2 0 01-2.8 0l-7.7-7.7a2 2 0 010-2.8L10.1 2.4H18a2 2 0 012 2v7.9a2 2 0 01-.6 1.4z"/><circle cx="14.5" cy="7.5" r="1.4" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="icon-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></symbol>
+    <symbol id="icon-download" viewBox="0 0 24 24"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></symbol>
+    <symbol id="icon-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24"><path d="M5 12l5 5 9-9"/></symbol>
+    <symbol id="icon-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
+  </defs>
+</svg>
 
-<audio id="bg-music" autoplay></audio>
-  
 <div class="page-wrapper">
   <main class="notebook">
     <div class="notebook-inner">
 
-      <!-- هدر سایت -->
       <header class="site-header">
         <div class="site-header-top">
-          <div class="title-block">
-            <h1>دفتر خاطرات و شعرهای من</h1>
-            <p>جایی برای ثبت لحظه‌ها، فکرها و بیت‌های دلی...</p>
+          <div class="brand">
+            <div class="brand-mark" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24" width="22" height="22"><use href="#icon-feather"></use></svg>
+            </div>
+            <div class="title-block">
+              <h1>دفتر خاطرات و شعرهای من</h1>
+              <p>جایی برای ثبت لحظه‌ها، فکرها و بیت‌های دلی...</p>
+              <div class="ink-flourish" aria-hidden="true"></div>
+            </div>
           </div>
 
-          <div class="header-actions">
-            <button class="theme-toggle" id="themeToggle" type="button" aria-label="تغییر حالت روشن و تاریک">
-              <span class="toggle-label" id="themeText">حالت روشن</span>
-              <span class="toggle-track">
-                <span class="toggle-thumb"></span>
-              </span>
+        <div class="header-actions">
+          <button class="theme-picker-btn" id="themePickerBtn" type="button" aria-haspopup="true" aria-expanded="false">
+            <span class="theme-swatch-dot" aria-hidden="true"></span>
+            <span>تم: <span id="currentThemeName">کاغذ کاهی</span></span>
+            <svg class="icon" viewBox="0 0 24 24" width="14" height="14"><use href="#icon-palette"></use></svg>
+          </button>
+          <div class="theme-panel" id="themePanel" role="menu">
+            <button class="theme-option" data-theme="kraft" type="button">
+              <span class="swatch-check"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-check"></use></svg></span>
+              <span class="swatch-preview p-kraft"></span>
+              کاغذ کاهی
+            </button>
+            <button class="theme-option" data-theme="night" type="button">
+              <span class="swatch-check"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-check"></use></svg></span>
+              <span class="swatch-preview p-night"></span>
+              شب مهتابی
+            </button>
+            <button class="theme-option" data-theme="autumn" type="button">
+              <span class="swatch-check"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-check"></use></svg></span>
+              <span class="swatch-preview p-autumn"></span>
+              برگ پاییز
+            </button>
+            <button class="theme-option" data-theme="sea" type="button">
+              <span class="swatch-check"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-check"></use></svg></span>
+              <span class="swatch-preview p-sea"></span>
+              دریای شمال
+            </button>
+            <button class="theme-option" data-theme="petal" type="button">
+              <span class="swatch-check"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-check"></use></svg></span>
+              <span class="swatch-preview p-petal"></span>
+              گلبرگ صورتی
             </button>
           </div>
         </div>
-
-        <!-- ناوبری -->
+        </div>
         <nav class="main-nav">
-          <a href="index.html" class="nav-link nav-active">خانه</a>
-          <a href="about.html" class="nav-link">درباره من</a>
+          <a href="index.html" class="nav-link nav-active"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-home"></use></svg>خانه</a>
+          <a href="about.html" class="nav-link"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-user"></use></svg>درباره من</a>
+          <a href="archive.html" class="nav-link"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-archive"></use></svg>آرشیو</a>
         </nav>
       </header>
 
-      <!-- فیلتر دسته‌بندی -->
       <section class="category-filter">
-        <button class="category-btn active" data-filter="all">همه</button>
-        <button class="category-btn" data-filter="note">یادداشت‌ها</button>
-        <button class="category-btn" data-filter="poem">شعرها</button>
+        <button class="category-btn active" data-filter="all" type="button">همه</button>
+        <button class="category-btn" data-filter="note" type="button"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>یادداشت‌ها</button>
+        <button class="category-btn" data-filter="poem" type="button"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-book"></use></svg>شعرها</button>
       </section>
 
-      <!-- لیست پست‌ها (جدیدترین بالا) -->
       <section class="posts">
-
-</article>
-      
 <article class="post" id="post-note-14050316" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">وقتی دیگر حرفی نمانده بود</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>وقتی دیگر حرفی نمانده بود</h2>
     <div class="post-meta">
-      <span class="post-date">۱۴۰۵/۰۳/۱۶</span>
-      <span class="post-tag">پس از یک گفتگوی تلخ</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۴۰۵/۰۳/۱۶</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>پس از یک گفتگوی تلخ</span>
     </div>
   </header>
-
   <div class="post-content">
     بعضی شب‌ها آدم تا ساعت‌ها به یک مکالمه فکر می‌کند؛ نه برای پیدا کردن مقصر، نه برای اثبات حقانیت خودش، فقط برای فهمیدن اینکه کجای راه، حرف‌ها این‌قدر از هم دور شدند.
 
@@ -119,79 +153,61 @@
     او خسته بود...
     و من تازه فهمیدم چقدر از این خستگی را ندیده بودم.
   </div>
-
   <div class="post-footer">
     گاهی پایانِ یک گفتگو، آغازِ فهمیدنِ چیزهایی است که در تمام مدتِ گفتگو از چشممان پنهان مانده بودند.
   </div>
 </article>
-        <!-- پست شعر -->
+
 <article class="post poem" id="post-14041001-poem2" data-category="poem">
   <header class="post-header">
-    <h2 class="post-title">ماه تابانِ من</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-book"></use></svg>ماه تابانِ من</h2>
     <div class="post-meta">
-      <span class="post-date">۱۴۰۴/۱۰/۰۱</span>
-      <span class="post-tag">شعر</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۴۰۴/۱۰/۰۱</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>شعر</span>
     </div>
   </header>
-
   <div class="post-content">
-
     <div style="margin-bottom:15px; font-style:italic; line-height:2;">
       گاهی یک نگاه، یک نفس، یک حضور،  
       جهان را به جای بهشت بدل می‌کند.  
       این شعر، ثبت لحظه‌هایی‌ست که حضورش،  
       زندگی را به معنایی تازه رساند.
     </div>
-
-    <img src="ESHQAM VA MAN.png" alt="eshqam va man" style="width:100%; border-radius:12px; margin-bottom:15px;">
-
-    <span>گلرخی دارم که رویش ماه تابانِ من است</span>
-    <span>هر نگاهش شوق بر دل خنده‌اش جانِ من است</span>
-
-    <span>عطرِ گیسویش شرابِ کهنه‌ی شب‌های شعر</span>
-    <span>مستی‌ام از باده‌ای‌ست کز او به پیمانِ من است</span>
-
-    <span>آسمان بی‌او قفس، دنیا بدونش سرد و کور</span>
-    <span>او دلیلِ دیدنم، چشمِ چراغانِ من است</span>
-
-    <span>خستگی را با تبسم از دلم بیرون کند</span>
-    <span>تکیه گاه قلب من دارو درمانِ من است</span>
-
-    <span>هر نفس با یاد او دل تازه می‌گیرد نفس</span>
-    <span>زندگی بی‌نامِ او رنجِ فراوانِ من است</span>
-
-    <span>دست اگر از دستِ دنیا شسته‌ام، باکی نبود</span>
-    <span>دستِ من در دستِ او که جان جانان من است</span>
-
-    <span>دل اگر از هر چه غیر از اوست، یک‌سر بگذرد</span>
-    <span>این گذشتن خود نشانِ عهدِ پنهانِ من است</span>
-
-    <span>هر کجا نامِ وفا آید، نگاهم سوی اوست</span>
-    <span>عشقِ او سر خط قلبم، اصل ایمان من است</span>
-
-    <span>در غزل نامش نیارم، باز پیداست از نفس</span>
-    <span>چون حضورش در کلامم روحِ حیرانِ من است</span>
-
+<img alt="eshqam va man" src="images/eshqam-va-man.jpg" loading="lazy" decoding="async" style="width:100%; border-radius:12px; margin-bottom:15px;"/>
+<span>گلرخی دارم که رویش ماه تابانِ من است</span>
+<span>هر نگاهش شوق بر دل خنده‌اش جانِ من است</span>
+<span>عطرِ گیسویش شرابِ کهنه‌ی شب‌های شعر</span>
+<span>مستی‌ام از باده‌ای‌ست کز او به پیمانِ من است</span>
+<span>آسمان بی‌او قفس، دنیا بدونش سرد و کور</span>
+<span>او دلیلِ دیدنم، چشمِ چراغانِ من است</span>
+<span>خستگی را با تبسم از دلم بیرون کند</span>
+<span>تکیه گاه قلب من دارو درمانِ من است</span>
+<span>هر نفس با یاد او دل تازه می‌گیرد نفس</span>
+<span>زندگی بی‌نامِ او رنجِ فراوانِ من است</span>
+<span>دست اگر از دستِ دنیا شسته‌ام، باکی نبود</span>
+<span>دستِ من در دستِ او که جان جانان من است</span>
+<span>دل اگر از هر چه غیر از اوست، یک‌سر بگذرد</span>
+<span>این گذشتن خود نشانِ عهدِ پنهانِ من است</span>
+<span>هر کجا نامِ وفا آید، نگاهم سوی اوست</span>
+<span>عشقِ او سر خط قلبم، اصل ایمان من است</span>
+<span>در غزل نامش نیارم، باز پیداست از نفس</span>
+<span>چون حضورش در کلامم روحِ حیرانِ من است</span>
   </div>
-
   <div class="post-footer">
     ثبت‌شده برای لحظه‌هایی که واژه‌ها عاجزند،  
     اما حضورِ او معنا را به قلب می‌آورد.
   </div>
 </article>
 
-        <!-- پست شعر -->
 <article class="post poem" id="post-14041001-poem" data-category="poem">
   <header class="post-header">
-    <h2 class="post-title">در بهشتِ جانِ تو</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-book"></use></svg>در بهشتِ جانِ تو</h2>
     <div class="post-meta">
-      <span class="post-date">۱۴۰۴/۱۰/۰۱</span>
-      <span class="post-tag">شعر</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۴۰۴/۱۰/۰۱</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>شعر</span>
     </div>
   </header>
-
   <div class="post-content">
-
     <div style="margin-bottom:15px; font-style:italic; line-height:2;">
       این شعر را در شبی نوشتم که دلتنگی‌ام از حد گذشته بود؛  
       شبی که کلمات نمی‌خواستند کوتاه بیایند  
@@ -199,125 +215,88 @@
       نمی‌دانستم این همه احساس چگونه در چند بیت جا می‌شود،  
       تا آنکه صبحِ زود، بی‌اختیار این شعر بر من جاری شد…
     </div>
-
-    <img src="ESHQAM.png" alt="eshqam" style="width:100%; border-radius:12px; margin-bottom:15px;">
-
-    <span>در بهشتِ جانِ تو، جانم به ماوایی رسید</span>
-    <span>چشمِ من آخر به سیلِ باغِ زیبایی رسید</span>
-
-    <span>عطرِ آغوشت خبر داد از قرارِ ماندنم</span>
-    <span>رازِ ما از راهِ تن، رازی به شیدایی رسید</span>
-
-    <span>چشم در چشمِ تو افتاد و زمان از کار ماند</span>
-    <span>این سکوتِ ناگهان، تا حدِّ نجوایی رسید</span>
-
-    <span>لب به لب، حرفی نگفتیم و دو تن فهمید حرف</span>
-    <span>به چه زیبا تن به تن تا حدِّ گویایی رسید</span>
-
-    <span>شانه‌ات مأوایِ عشقم، لب بر آن منزل گرفت</span>
-    <span>اشتیاقِ وصلِ ما، حالا به پیدایی رسید</span>
-
-    <span>سینه و گردن به گردن، صحبت از کاشانه کرد</span>
-    <span>سردیِ این زندگی، آخر به گرمایی رسید</span>
-
-    <span>پیکرم آیینه شد، دل در آن خود را شناخت</span>
-    <span>عشق ازین پیوندِ تن، در حد اعلایی رسید</span>
-
-    <span>هیچ خطایی در میانِ این تماسِ پاک نیست</span>
-    <span>پاکی از لمسِ درست، تا حدِّ تقوایی رسید</span>
-
-    <span>ما نه از مردم گریزیم و نه از مردم شکست</span>
-    <span>عالم و آدم از این معنا، به تنهایی رسید</span>
-
-    <span>این چنین شد شعرِ من، با این دو تن جانی گرفت</span>
-    <span>واژه‌ها از راهِ تن، آخر به معنایی رسید</span>
-
+<img alt="eshqam" src="images/eshqam.jpg" loading="lazy" decoding="async" style="width:100%; border-radius:12px; margin-bottom:15px;"/>
+<span>در بهشتِ جانِ تو، جانم به ماوایی رسید</span>
+<span>چشمِ من آخر به سیلِ باغِ زیبایی رسید</span>
+<span>عطرِ آغوشت خبر داد از قرارِ ماندنم</span>
+<span>رازِ ما از راهِ تن، رازی به شیدایی رسید</span>
+<span>چشم در چشمِ تو افتاد و زمان از کار ماند</span>
+<span>این سکوتِ ناگهان، تا حدِّ نجوایی رسید</span>
+<span>لب به لب، حرفی نگفتیم و دو تن فهمید حرف</span>
+<span>به چه زیبا تن به تن تا حدِّ گویایی رسید</span>
+<span>شانه‌ات مأوایِ عشقم، لب بر آن منزل گرفت</span>
+<span>اشتیاقِ وصلِ ما، حالا به پیدایی رسید</span>
+<span>سینه و گردن به گردن، صحبت از کاشانه کرد</span>
+<span>سردیِ این زندگی، آخر به گرمایی رسید</span>
+<span>پیکرم آیینه شد، دل در آن خود را شناخت</span>
+<span>عشق ازین پیوندِ تن، در حد اعلایی رسید</span>
+<span>هیچ خطایی در میانِ این تماسِ پاک نیست</span>
+<span>پاکی از لمسِ درست، تا حدِّ تقوایی رسید</span>
+<span>ما نه از مردم گریزیم و نه از مردم شکست</span>
+<span>عالم و آدم از این معنا، به تنهایی رسید</span>
+<span>این چنین شد شعرِ من، با این دو تن جانی گرفت</span>
+<span>واژه‌ها از راهِ تن، آخر به معنایی رسید</span>
   </div>
-
   <div class="post-footer">
     ثبت‌شده برای لحظه‌ای که عشق، از پناهِ تن به معنای روح رسید.
   </div>
 </article>
 
-        
 <article class="post poem" id="post-14040925-poem" data-category="poem">
   <header class="post-header">
-    <h2 class="post-title">در بندِ زلفِ پریشان</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-book"></use></svg>در بندِ زلفِ پریشان</h2>
     <div class="post-meta">
-      <span class="post-date">۱۴۰۴/۰۹/۲۵</span>
-      <span class="post-tag">شعر</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۴۰۴/۰۹/۲۵</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>شعر</span>
     </div>
   </header>
-
   <div class="post-content">
-    
-
-    <img src="MALAKE.png" alt="فرشته" style="width:100%; border-radius:12px; margin-bottom:20px;">
-
-    <span>بتی دارم که جانم شد گرو در بندِ پیمانش</span>
-    <span>نه ایمان ماند و نه صبر از نگاه ناز چشمانش</span>
-
-    <span>شرابِ وصل اگر ریزد، سلیمان هم فراموشد</span>
-    <span>عصا و مُلک و انگشتر، ز مستیِ نمکدانش</span>
-
-    <span>نهالِ خشکِ جانم سبز شد از یک نگاه او</span>
-    <span>چنین دارد مسیحا دم، مگر در لطفِ احسانش</span>
-
-    <span>ملایک صف کشیدند آن شبی کز راه می‌آمد</span>
-    <span>زمین بوسید پیش از من غبارِ خاکِ دامانش</span>
-
-    <span>حدیثِ حُبِ بی‌پایان ز هر ذره به گوش آید</span>
-    <span>اگر روزی برون افتد ز پرده رازِ پنهانش</span>
-
-    <span>به یک لبخند، عمرِ صبر کوتاه آمد از دستم</span>
-    <span>شکست از شرمِ نورِ صبح، صفایِ نظمِ دندانش</span>
-
-    <span>نه گل تابِ رخِ او داشت، نه مه یارایِ دیدارش</span>
-    <span>همه حیران بماند از حیرتِ زیبِ زنخدانش</span>
-
-    <span>بهار آمد، بهار آمد ز رویِ نازِ خندانش</span>
-    <span>جهان برخاست یک‌باره ز خوابِ سردِ هجرانش</span>
-
-    <span>من آن روز از خودم رفتم، نپرسیدم ز پایانش</span>
-    <span>زمان افتاد سرگردان میانِ بود و امکانش</span>
-
-    <span>چنان افتاد دل در راه، بی‌پرسش ز پایانش</span>
-    <span>که عشق آغاز می‌خواهد، نه اندیشه ز انجامش</span>
-
-    <span>نه تیغِ رستم آن‌سان کارگر افتاد در عالم</span>
-    <span>که مژگانش درآورد از دلِ ما تیغِ بُرانش</span>
-
-    <span>که صد لشکر شکست آن‌جا به حکمِ یک نگاه او</span>
-    <span>همه حیران فرو ماند از شکوهِ قهرِ چشمانش</span>
-
-    <span>نه مسجد ماند و نه میخانه از غوغایِ عشق او</span>
-    <span>همه در حلقه افتادند، چه کافر، چه مسلمانش</span>
-
-    <span>مرا گفتند: «رهایی جو!» ندانستند اهلِ عقل</span>
-    <span>که آزادی‌ست در بندِ همان زلفِ پریشانش</span>
-
-    <span>اگر نامی بماند از من اندر دفترِ دوران</span>
-    <span>همین بس کز دلم بنوشت دستی نامِ جانانش</span>
-
+    <img alt="فرشته" src="images/malake.jpg" loading="lazy" decoding="async" style="width:100%; border-radius:12px; margin-bottom:20px;"/>
+<span>بتی دارم که جانم شد گرو در بندِ پیمانش</span>
+<span>نه ایمان ماند و نه صبر از نگاه ناز چشمانش</span>
+<span>شرابِ وصل اگر ریزد، سلیمان هم فراموشد</span>
+<span>عصا و مُلک و انگشتر، ز مستیِ نمکدانش</span>
+<span>نهالِ خشکِ جانم سبز شد از یک نگاه او</span>
+<span>چنین دارد مسیحا دم، مگر در لطفِ احسانش</span>
+<span>ملایک صف کشیدند آن شبی کز راه می‌آمد</span>
+<span>زمین بوسید پیش از من غبارِ خاکِ دامانش</span>
+<span>حدیثِ حُبِ بی‌پایان ز هر ذره به گوش آید</span>
+<span>اگر روزی برون افتد ز پرده رازِ پنهانش</span>
+<span>به یک لبخند، عمرِ صبر کوتاه آمد از دستم</span>
+<span>شکست از شرمِ نورِ صبح، صفایِ نظمِ دندانش</span>
+<span>نه گل تابِ رخِ او داشت، نه مه یارایِ دیدارش</span>
+<span>همه حیران بماند از حیرتِ زیبِ زنخدانش</span>
+<span>بهار آمد، بهار آمد ز رویِ نازِ خندانش</span>
+<span>جهان برخاست یک‌باره ز خوابِ سردِ هجرانش</span>
+<span>من آن روز از خودم رفتم، نپرسیدم ز پایانش</span>
+<span>زمان افتاد سرگردان میانِ بود و امکانش</span>
+<span>چنان افتاد دل در راه، بی‌پرسش ز پایانش</span>
+<span>که عشق آغاز می‌خواهد، نه اندیشه ز انجامش</span>
+<span>نه تیغِ رستم آن‌سان کارگر افتاد در عالم</span>
+<span>که مژگانش درآورد از دلِ ما تیغِ بُرانش</span>
+<span>که صد لشکر شکست آن‌جا به حکمِ یک نگاه او</span>
+<span>همه حیران فرو ماند از شکوهِ قهرِ چشمانش</span>
+<span>نه مسجد ماند و نه میخانه از غوغایِ عشق او</span>
+<span>همه در حلقه افتادند، چه کافر، چه مسلمانش</span>
+<span>مرا گفتند: «رهایی جو!» ندانستند اهلِ عقل</span>
+<span>که آزادی‌ست در بندِ همان زلفِ پریشانش</span>
+<span>اگر نامی بماند از من اندر دفترِ دوران</span>
+<span>همین بس کز دلم بنوشت دستی نامِ جانانش</span>
   </div>
-
   <div class="post-footer">
     ثبت‌شده برای عشقی که رهایی را در بند معنا کرد.
   </div>
 </article>
 
-        <!-- پست شعر -->
 <article class="post poem" id="post-14040408-poem" data-category="poem">
   <header class="post-header">
-    <h2 class="post-title">محبوبِ نورِ ماه</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-book"></use></svg>محبوبِ نورِ ماه</h2>
     <div class="post-meta">
-      <span class="post-date">۱۴۰۴/۰۴/۰۸</span>
-      <span class="post-tag">شعر</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۴۰۴/۰۴/۰۸</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>شعر</span>
     </div>
   </header>
-
   <div class="post-content">
-
     <div style="margin-bottom:15px; font-style:italic; line-height:2;">
       در سحرگاهِ این روز، ساعتِ ۵:۴۲ دقیقه،  
       این شعر را برایش فرستادم؛  
@@ -327,32 +306,25 @@
       آخرِ آن شبِ طولانی، این شعر را گفتم…  
       شعری که خودش داستانی بلندتر از سکوت‌های او دارد.
     </div>
-
-    <img src="mah.jpg" alt="mah" style="width:100%; border-radius:12px; margin-bottom:15px;">
-
-    <span>گُرگِ شَب مَحبوبِ نورِ ماه نیست</span>
-    <span>حُسنِ مَه، وَقفِ شِکارِ چاه نیست</span>
-
-    <span>دَر دِل شَب مـی‌تَراوَد مـاه‌تـاب</span>
-    <span>قِصّه‌اش سودایِ سود و جاه نیست</span>
-
-    <span>چون پُر از نور است زِ لُطفِ مـاه‌تـاب</span>
-    <span>آسـمان را خـُوفِ شَب هَمراه نیست</span>
-
+<img alt="mah" src="images/mah.jpg" loading="lazy" decoding="async" style="width:100%; border-radius:12px; margin-bottom:15px;"/>
+<span>گُرگِ شَب مَحبوبِ نورِ ماه نیست</span>
+<span>حُسنِ مَه، وَقفِ شِکارِ چاه نیست</span>
+<span>دَر دِل شَب مـی‌تَراوَد مـاه‌تـاب</span>
+<span>قِصّه‌اش سودایِ سود و جاه نیست</span>
+<span>چون پُر از نور است زِ لُطفِ مـاه‌تـاب</span>
+<span>آسـمان را خـُوفِ شَب هَمراه نیست</span>
   </div>
-
   <div class="post-footer">
     ثبت‌شده برای لحظه‌ای که شعر، کاری کرد که واژه‌ها نتوانسته بودند.
   </div>
 </article>
 
-        
 <article class="post" id="post-note-14031216" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">بعد از این همه سکوت</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>بعد از این همه سکوت</h2>
     <div class="post-meta">
-      <span class="post-date">۱۴۰۳/۱۲/۱۶</span>
-      <span class="post-tag">بازگشتِ بی‌نظم</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۴۰۳/۱۲/۱۶</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>بازگشتِ بی‌نظم</span>
     </div>
   </header>
   <div class="post-content">
@@ -367,15 +339,12 @@
   </div>
 </article>
 
-<!-- از این‌جا به بعد: پست‌ها با تاریخ‌های قدیمی‌تر، مرتب شده از جدید به قدیم -->
-
-
 <article class="post" id="post-note-01" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">یادداشت برای فراموش‌نشدن</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>یادداشت برای فراموش‌نشدن</h2>
     <div class="post-meta">
-      <span class="post-date">۱۴۰۲/۰۴/۱۲</span>
-      <span class="post-tag">ثبت رویا</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۴۰۲/۰۴/۱۲</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>ثبت رویا</span>
     </div>
   </header>
   <div class="post-content">
@@ -384,14 +353,14 @@
   <div class="post-footer">
     این یادداشت خودش یک تپه‌ی کوچک است؛ اگر روزی گم شدی، از همین‌جا شروع کن و دوباره بالا برو.
   </div>
-  
 </article>
+
 <article class="post" id="post-extra-01" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">ظرافت در فهم انسان</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>ظرافت در فهم انسان</h2>
     <div class="post-meta">
-      <span class="post-date">۱۴۰۲/۰۳/۱۹</span>
-      <span class="post-tag">شناخت آدم‌ها</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۴۰۲/۰۳/۱۹</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>شناخت آدم‌ها</span>
     </div>
   </header>
   <div class="post-content">
@@ -402,13 +371,12 @@
   </div>
 </article>
 
-        
 <article class="post" id="post-note-02" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">رویای راه‌رفتن</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>رویای راه‌رفتن</h2>
     <div class="post-meta">
-      <span class="post-date">۱۴۰۲/۰۱/۱۰</span>
-      <span class="post-tag">حرکت آرام</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۴۰۲/۰۱/۱۰</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>حرکت آرام</span>
     </div>
   </header>
   <div class="post-content">
@@ -418,12 +386,13 @@
     اگر یاد بگیری از خودِ راه لذت ببری، دیر رسیدن دیگر تو را نمی‌ترساند.
   </div>
 </article>
+
 <article class="post" id="post-extra-02" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">بلوغ احساسی</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>بلوغ احساسی</h2>
     <div class="post-meta">
-      <span class="post-date">۱۴۰۱/۱۰/۲۷</span>
-      <span class="post-tag">رشد فردی</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۴۰۱/۱۰/۲۷</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>رشد فردی</span>
     </div>
   </header>
   <div class="post-content">
@@ -433,12 +402,13 @@
     رابطه‌ی سالم از انسانِ سالم آغاز می‌شود.
   </div>
 </article>
+
 <article class="post" id="post-extra-03" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">احترام به پیچیدگی‌ها</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>احترام به پیچیدگی‌ها</h2>
     <div class="post-meta">
-      <span class="post-date">۱۴۰۱/۰۵/۱۸</span>
-      <span class="post-tag">روان زنان</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۴۰۱/۰۵/۱۸</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>روان زنان</span>
     </div>
   </header>
   <div class="post-content">
@@ -451,35 +421,31 @@
 
 <article class="post poem" id="post-14010223-poem" data-category="poem">
   <header class="post-header">
-    <h2 class="post-title">آرامِ شبی که نمی‌آید</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-book"></use></svg>آرامِ شبی که نمی‌آید</h2>
     <div class="post-meta">
-      <span class="post-date">۱۴۰۱/۰۲/۲۳</span>
-      <span class="post-tag">شعر</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۴۰۱/۰۲/۲۳</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>شعر</span>
     </div>
   </header>
-
   <div class="post-content">
     <span>شبی آرام می‌آیی و در جانم خَلَل داری</span>
-    <span>میانِ خستگی‌هایم تویی مهرِ اَزَل داری</span>
-
-    <span>به لبخندت چه می‌ریزد؟ نمی‌دانم، ولی پیداست</span>
-    <span>که در گفتارِ بی‌گفتن تو قند و عسل داری</span>
-
-    <span>به آغوشی که نامش نیست هم دل می‌سپارم من</span>
-    <span>تو انگار از دلِ رؤیا برایم یک بَغَل داری</span>
+<span>میانِ خستگی‌هایم تویی مهرِ اَزَل داری</span>
+<span>به لبخندت چه می‌ریزد؟ نمی‌دانم، ولی پیداست</span>
+<span>که در گفتارِ بی‌گفتن تو قند و عسل داری</span>
+<span>به آغوشی که نامش نیست هم دل می‌سپارم من</span>
+<span>تو انگار از دلِ رؤیا برایم یک بَغَل داری</span>
   </div>
-
   <div class="post-footer">
     نوشته شده در شبی که تنها تکیه‌گاهِ خستگی‌ها، آغوشی بود که هنوز به این دنیا نیامده است.
   </div>
 </article>
-        
+
 <article class="post" id="post-extra-04" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">صبرِ باشکوه</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>صبرِ باشکوه</h2>
     <div class="post-meta">
-      <span class="post-date">۱۴۰۰/۱۱/۰۹</span>
-      <span class="post-tag">فلسفه‌ی انتظار</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۴۰۰/۱۱/۰۹</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>فلسفه‌ی انتظار</span>
     </div>
   </header>
   <div class="post-content">
@@ -492,10 +458,10 @@
 
 <article class="post" id="post-extra-05" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">لحنِ آرام گفتگو</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>لحنِ آرام گفتگو</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۹/۱۲/۲۱</span>
-      <span class="post-tag">هنر ارتباط</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۹/۱۲/۲۱</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>هنر ارتباط</span>
     </div>
   </header>
   <div class="post-content">
@@ -505,12 +471,13 @@
     آرام حرف زدن، نشانه‌ی ضعیف بودن نیست؛ نشانه‌ی قوی بودن است.
   </div>
 </article>
+
 <article class="post" id="post-note-03" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">دیگه بیدارم</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>دیگه بیدارم</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۹/۱۲/۱۵</span>
-      <span class="post-tag">لحظه‌ی فهمیدن</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۹/۱۲/۱۵</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>لحظه‌ی فهمیدن</span>
     </div>
   </header>
   <div class="post-content">
@@ -521,13 +488,12 @@
   </div>
 </article>
 
-<!-- پست ۴ -->
 <article class="post" id="post-note-04" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">زمستانِ خانه‌ی چوبی</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>زمستانِ خانه‌ی چوبی</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۹/۱۲/۰۲</span>
-      <span class="post-tag">سردی و گرما</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۹/۱۲/۰۲</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>سردی و گرما</span>
     </div>
   </header>
   <div class="post-content">
@@ -537,48 +503,37 @@
     شاید ما هم برای هم، همین چراغ‌های کوچک باشیم؛ نه خورشید، اما کافی برای روشن نگه داشتنِ یک اتاق.
   </div>
 </article>
-        <!-- پست شعر -->
+
 <article class="post poem" id="post-13991029-poem" data-category="poem">
   <header class="post-header">
-    <h2 class="post-title">هاتفِ پنهان</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-book"></use></svg>هاتفِ پنهان</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۹/۱۰/۲۹</span>
-      <span class="post-tag">شعر</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۹/۱۰/۲۹</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>شعر</span>
     </div>
   </header>
-
   <div class="post-content">
     <span>گاه در من هاتفی پنهان نوایی می‌زند</span>
-    <span>بی‌خبر از هرکه باشد، دل هوایی می‌زند</span>
-
-    <span>پایِ من با آن‌که بر خاکِ همین دنیا ست، لیک</span>
-    <span>روح من سویِ جهانی ماورایی می‌زند</span>
-
-    <span>سال‌ها شد پرسشِ من بی‌جواب افتاده است</span>
-    <span>لیک پرسیدن مرا سمتِ رهایی می‌زند</span>
-
-    <span>محبوبی بی‌چهره در من راهِ خود را باز کرد</span>
-    <span>هر نفس نامی نگفت اما صدایی می‌زند</span>
-
-    <span>هرچه می‌پویم، حضورش در درونم زنده‌تر</span>
-    <span>هرچه دوری می‌کنم، نزدیک‌تر جایی می‌زند</span>
-
-    <span>من به چیزی ناشناخته وفادارم هنوز</span>
-    <span>چون که این ایمان به دل، مهر خدایی می‌زند</span>
-
-    <span>بی‌قراری نیست طوفان؛ نسیمی‌ست از عدم</span>
-    <span>بادِ این بی‌نام، بر خواب و تماشایی می‌زند</span>
-
-    <span>جاده‌ای در جان من هست از ازل روشن شده</span>
-    <span>راهِ این روشن‌گری بر خاکِ تن شایی می‌زند</span>
-
-    <span>گرچه فردا را نمی‌دانم چه می‌زاید، ولی</span>
-    <span>این یقین در سینه‌ام مثلِ پناهی می‌زند</span>
-
-    <span>من به آمدنی بزرگ از دور سوگند می‌خورم</span>
-    <span>هرکه دل را صاف کند، هاتف صدایی می‌زند</span>
+<span>بی‌خبر از هرکه باشد، دل هوایی می‌زند</span>
+<span>پایِ من با آن‌که بر خاکِ همین دنیا ست، لیک</span>
+<span>روح من سویِ جهانی ماورایی می‌زند</span>
+<span>سال‌ها شد پرسشِ من بی‌جواب افتاده است</span>
+<span>لیک پرسیدن مرا سمتِ رهایی می‌زند</span>
+<span>محبوبی بی‌چهره در من راهِ خود را باز کرد</span>
+<span>هر نفس نامی نگفت اما صدایی می‌زند</span>
+<span>هرچه می‌پویم، حضورش در درونم زنده‌تر</span>
+<span>هرچه دوری می‌کنم، نزدیک‌تر جایی می‌زند</span>
+<span>من به چیزی ناشناخته وفادارم هنوز</span>
+<span>چون که این ایمان به دل، مهر خدایی می‌زند</span>
+<span>بی‌قراری نیست طوفان؛ نسیمی‌ست از عدم</span>
+<span>بادِ این بی‌نام، بر خواب و تماشایی می‌زند</span>
+<span>جاده‌ای در جان من هست از ازل روشن شده</span>
+<span>راهِ این روشن‌گری بر خاکِ تن شایی می‌زند</span>
+<span>گرچه فردا را نمی‌دانم چه می‌زاید، ولی</span>
+<span>این یقین در سینه‌ام مثلِ پناهی می‌زند</span>
+<span>من به آمدنی بزرگ از دور سوگند می‌خورم</span>
+<span>هرکه دل را صاف کند، هاتف صدایی می‌زند</span>
   </div>
-
   <div class="post-footer">
     نوشته شده در شبی که سکوتِ خانه هم صدا داشت؛ صدا از جایی ورای این جهان.
   </div>
@@ -586,10 +541,10 @@
 
 <article class="post" id="post-longing-01" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">بی‌قراری‌های بی‌صدا</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>بی‌قراری‌های بی‌صدا</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۹/۰۹/۲۱</span>
-      <span class="post-tag">بی‌قراری آرام</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۹/۰۹/۲۱</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>بی‌قراری آرام</span>
     </div>
   </header>
   <div class="post-content">
@@ -599,13 +554,13 @@
     بعضی دلتنگی‌ها پیام‌آورِ آدمی‌اند که هنوز نرسیده، اما راه را می‌آموزاند.
   </div>
 </article>
-        
+
 <article class="post" id="post-note-05" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">پاییزِ بلندقد</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>پاییزِ بلندقد</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۹/۰۷/۳۰</span>
-      <span class="post-tag">زمان کش‌دار</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۹/۰۷/۳۰</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>زمان کش‌دار</span>
     </div>
   </header>
   <div class="post-content">
@@ -616,12 +571,12 @@
   </div>
 </article>
 
-        <article class="post" id="post-extra-06" data-category="note">
+<article class="post" id="post-extra-06" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">چگونه دوست داشتن</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>چگونه دوست داشتن</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۹/۰۵/۰۷</span>
-      <span class="post-tag">محبت سالم</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۹/۰۵/۰۷</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>محبت سالم</span>
     </div>
   </header>
   <div class="post-content">
@@ -631,12 +586,13 @@
     محبت اگر آزادی ندهد، محبت نیست؛ مالکیت است.
   </div>
 </article>
+
 <article class="post" id="post-note-06" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">تابستانِ کُند</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>تابستانِ کُند</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۹/۰۴/۱۹</span>
-      <span class="post-tag">گرمای آرام</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۹/۰۴/۱۹</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>گرمای آرام</span>
     </div>
   </header>
   <div class="post-content">
@@ -647,13 +603,12 @@
   </div>
 </article>
 
-<!-- پست ۷ -->
 <article class="post" id="post-note-07" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">دوباره از نو نوشتن</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>دوباره از نو نوشتن</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۹/۰۲/۰۲</span>
-      <span class="post-tag">بازآغاز</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۹/۰۲/۰۲</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>بازآغاز</span>
     </div>
   </header>
   <div class="post-content">
@@ -666,10 +621,10 @@
 
 <article class="post" id="post-longing-02" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">انتظارهای بی‌نام</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>انتظارهای بی‌نام</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۸/۱۲/۰۳</span>
-      <span class="post-tag">انتظار نجیب</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۸/۱۲/۰۳</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>انتظار نجیب</span>
     </div>
   </header>
   <div class="post-content">
@@ -679,13 +634,13 @@
     انتظار اگر بی‌نام باشد، تازه واقعی‌تر است؛ چون از دل می‌جوشد نه از خاطره.
   </div>
 </article>
-        
+
 <article class="post" id="post-note-08" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">پاییزِ روی تپه‌های کوتاه</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>پاییزِ روی تپه‌های کوتاه</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۸/۰۹/۲۵</span>
-      <span class="post-tag">رنگِ افتادن</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۸/۰۹/۲۵</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>رنگِ افتادن</span>
     </div>
   </header>
   <div class="post-content">
@@ -698,10 +653,10 @@
 
 <article class="post" id="post-extra-07" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">زنان و جزئیات</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>زنان و جزئیات</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۸/۰۹/۲۴</span>
-      <span class="post-tag">شناخت جزئی</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۸/۰۹/۲۴</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>شناخت جزئی</span>
     </div>
   </header>
   <div class="post-content">
@@ -711,12 +666,13 @@
     جزئیات، زبانِ بی‌صدای محبت‌اند.
   </div>
 </article>
+
 <article class="post" id="post-note-09" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">فرار از شهر، پناه به رویا</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>فرار از شهر، پناه به رویا</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۸/۰۵/۱۸</span>
-      <span class="post-tag">خستگی شهری</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۸/۰۵/۱۸</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>خستگی شهری</span>
     </div>
   </header>
   <div class="post-content">
@@ -726,12 +682,13 @@
     بعضی آدرس‌ها را فقط باید در رویا پیدا کرد، نه در نوار جست‌وجوی مرورگر.
   </div>
 </article>
+
 <article class="post" id="post-extra-08" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">آرامشِ درونی</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>آرامشِ درونی</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۸/۰۲/۱۶</span>
-      <span class="post-tag">سلامت روان</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۸/۰۲/۱۶</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>سلامت روان</span>
     </div>
   </header>
   <div class="post-content">
@@ -744,10 +701,10 @@
 
 <article class="post" id="post-note-10" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">بهار در سرزمین خواب</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>بهار در سرزمین خواب</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۸/۰۱/۰۷</span>
-      <span class="post-tag">بهار درون</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۸/۰۱/۰۷</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>بهار درون</span>
     </div>
   </header>
   <div class="post-content">
@@ -760,10 +717,10 @@
 
 <article class="post" id="post-extra-09" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">زن‌ها و حس امنیت</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>زن‌ها و حس امنیت</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۷/۱۰/۰۱</span>
-      <span class="post-tag">نیاز انسانی</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۷/۱۰/۰۱</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>نیاز انسانی</span>
     </div>
   </header>
   <div class="post-content">
@@ -773,13 +730,13 @@
     امنیت، اولین هدیه‌ی عشق است؛ نه توجه، نه هدیه، نه قول.
   </div>
 </article>
-        
+
 <article class="post" id="post-note-11" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">بازگشتِ تصویر محو</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>بازگشتِ تصویر محو</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۷/۰۹/۱۰</span>
-      <span class="post-tag">حضور خاموش</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۷/۰۹/۱۰</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>حضور خاموش</span>
     </div>
   </header>
   <div class="post-content">
@@ -792,10 +749,10 @@
 
 <article class="post" id="post-longing-03" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">محبوبی که نیست</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>محبوبی که نیست</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۷/۰۷/۱۸</span>
-      <span class="post-tag">دلتنگی بی‌صورت</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۷/۰۷/۱۸</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>دلتنگی بی‌صورت</span>
     </div>
   </header>
   <div class="post-content">
@@ -805,13 +762,13 @@
     گاهی نبودنِ کسی، حضوری پررنگ‌تر از بودنش دارد.
   </div>
 </article>
-        
+
 <article class="post" id="post-note-12" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">روزی برای خندیدنِ بی‌دلیل</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>روزی برای خندیدنِ بی‌دلیل</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۷/۰۵/۲۹</span>
-      <span class="post-tag">شادی ساده</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۷/۰۵/۲۹</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>شادی ساده</span>
     </div>
   </header>
   <div class="post-content">
@@ -824,10 +781,10 @@
 
 <article class="post" id="post-extra-10" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">فرصت دادن</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>فرصت دادن</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۷/۰۲/۲۰</span>
-      <span class="post-tag">صبر انسانی</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۷/۰۲/۲۰</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>صبر انسانی</span>
     </div>
   </header>
   <div class="post-content">
@@ -837,13 +794,13 @@
     هر چیز ارزشمندی زمان می‌خواهد؛ حتی آرامش.
   </div>
 </article>
-        
+
 <article class="post" id="post-note-13" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">هدفِ بی‌نقاب</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>هدفِ بی‌نقاب</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۷/۰۲/۱۱</span>
-      <span class="post-tag">نیت آرام</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۷/۰۲/۱۱</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>نیت آرام</span>
     </div>
   </header>
   <div class="post-content">
@@ -853,78 +810,60 @@
     کاری که فقط برای نگاه دیگران انجام می‌شود، دیر یا زود از دستت می‌افتد.
   </div>
 </article>
-<!-- پست شعر -->
+
 <article class="post poem" id="post-13961201-poem" data-category="poem">
   <header class="post-header">
-    <h2 class="post-title">از خدا خواهم که محبوب آید</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-book"></use></svg>از خدا خواهم که محبوب آید</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۶/۱۲/۰۱</span>
-      <span class="post-tag">شعر</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۶/۱۲/۰۱</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>شعر</span>
     </div>
   </header>
-
   <div class="post-content">
-
     <div style="margin-bottom:15px; font-style:italic; line-height:2;">
       در روزی بارانی این عکس را گرفتم؛
       یادگاری برای روزی که شاید این شعر و این تصویرِ درختِ باران‌خورده را به او نشان بدهم؛
       روزی که بداند در آن سال‌ها، چقدر بی‌صدا منتظر آمدنش بودم.
     </div>
-
-    <img src="https://github.com/Mahmoudkhavari/blog/blob/main/%D8%AF%D8%B1%D8%AE%D8%AA%20%D8%A8%D8%A7%D8%B1%D9%88%D9%86%20%D8%B2%D8%AF%D9%87.jpg?raw=true" alt="درخت باران‌زده" style="width:100%; border-radius:12px; margin-bottom:15px;">
-
-    <span>از خدا خواهم که محبوب زِ آسمان آید زمین</span>
-    <span>بر زمین آید همان ماهِ درخشانِ مَهین</span>
-
-    <span>چون نَسیمی خوش و زَد از کوچهٔ دیدارِ یار</span>
-    <span>می‌رَوَد اندوه و غم از سینهٔ لرزانِ طنین</span>
-
-    <span>بادِ رحمت در پِیَش آید، گشاید بختِ ما</span>
-    <span>چون نَسیمی نرم، آرام از درِ جان، آفرین</span>
-
-    <span>گر نشیند لحظه‌ای در سایهٔ لُطفش دلم</span>
-    <span>غرق گردد در صفا چون مَهِ تابان، یقین</span>
-
-    <span>بر دلم افتاد کآید آن نگارِ نازنین</span>
-    <span>بگذرد چون موجِ مَه بر ساحلِ شامِ غَمین</span>
-
-    <span>چون قدم رنجه کند بر خاکِ دل، گل می‌دَمَد</span>
-    <span>زین نَفَس، صد باغ روید در بیابانِ حَزین</span>
-
-    <span>در دلِ شب، شمعِ وصلت می‌نهد آتش به جان</span>
-    <span>تا شود روشن مسیرِ عشق بر رَه‌بَر نشین</span>
-
-    <span>لحظه‌ای با او نشستن، عالمی آرامش است</span>
-    <span>می‌نوازد بر دلم او نغمه‌هایِ دل‌نشین</span>
-
-    <span>راهِ وصلت می‌نماید، گرچه دور است و دراز</span>
-    <span>لیک امیدم بَرَد سو‌یِ طلوعِ آخِرین</span>
-
-    <span>آن لبِ خندان اگر یک دَم به مِهرت وا شود</span>
-    <span>وا شود صد قفلِ غم از قلبِ بسته، ناگزین</span>
-
-    <span>نقشِ او در سینه دارم، چون مَهِ پُرنورِ شب</span>
-    <span>تا ابد ماند فُروزان، بی‌زَوال و بی‌حَدین</span>
-
-    <span>گر زند دستی به دستم، وقت از حرکت بماند</span>
-    <span>لحظه‌ای گردد جهان آرام و بی‌رنج و تَبین</span>
-
-    <span>بوسه‌ای گر از نَسیمِ زُلفِ او آید به جان</span>
-    <span>جانِ من لَرزد چو برگِ نسترن و یاسمین</span>
-
+<img alt="درخت باران‌زده" src="images/rain-tree.jpg" loading="lazy" decoding="async" style="width:100%; border-radius:12px; margin-bottom:15px;"/>
+<span>از خدا خواهم که محبوب زِ آسمان آید زمین</span>
+<span>بر زمین آید همان ماهِ درخشانِ مَهین</span>
+<span>چون نَسیمی خوش و زَد از کوچهٔ دیدارِ یار</span>
+<span>می‌رَوَد اندوه و غم از سینهٔ لرزانِ طنین</span>
+<span>بادِ رحمت در پِیَش آید، گشاید بختِ ما</span>
+<span>چون نَسیمی نرم، آرام از درِ جان، آفرین</span>
+<span>گر نشیند لحظه‌ای در سایهٔ لُطفش دلم</span>
+<span>غرق گردد در صفا چون مَهِ تابان، یقین</span>
+<span>بر دلم افتاد کآید آن نگارِ نازنین</span>
+<span>بگذرد چون موجِ مَه بر ساحلِ شامِ غَمین</span>
+<span>چون قدم رنجه کند بر خاکِ دل، گل می‌دَمَد</span>
+<span>زین نَفَس، صد باغ روید در بیابانِ حَزین</span>
+<span>در دلِ شب، شمعِ وصلت می‌نهد آتش به جان</span>
+<span>تا شود روشن مسیرِ عشق بر رَه‌بَر نشین</span>
+<span>لحظه‌ای با او نشستن، عالمی آرامش است</span>
+<span>می‌نوازد بر دلم او نغمه‌هایِ دل‌نشین</span>
+<span>راهِ وصلت می‌نماید، گرچه دور است و دراز</span>
+<span>لیک امیدم بَرَد سو‌یِ طلوعِ آخِرین</span>
+<span>آن لبِ خندان اگر یک دَم به مِهرت وا شود</span>
+<span>وا شود صد قفلِ غم از قلبِ بسته، ناگزین</span>
+<span>نقشِ او در سینه دارم، چون مَهِ پُرنورِ شب</span>
+<span>تا ابد ماند فُروزان، بی‌زَوال و بی‌حَدین</span>
+<span>گر زند دستی به دستم، وقت از حرکت بماند</span>
+<span>لحظه‌ای گردد جهان آرام و بی‌رنج و تَبین</span>
+<span>بوسه‌ای گر از نَسیمِ زُلفِ او آید به جان</span>
+<span>جانِ من لَرزد چو برگِ نسترن و یاسمین</span>
   </div>
-
   <div class="post-footer">
     ثبت‌شده برای روزی بارانی در سالی دور؛ روزی که دعا، شبیهِ گفت‌وگو با محبوبی بود که هنوز نیامده بود.
   </div>
 </article>
 
-        <article class="post" id="post-longing-04" data-category="note">
+<article class="post" id="post-longing-04" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">دل‌آشوبِ بی‌دلیل</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>دل‌آشوبِ بی‌دلیل</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۶/۰۹/۱۲</span>
-      <span class="post-tag">تپش پنهان</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۶/۰۹/۱۲</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>تپش پنهان</span>
     </div>
   </header>
   <div class="post-content">
@@ -934,14 +873,13 @@
     دل وقتی بی‌دلیل می‌لرزد، یعنی چیزی در راه است.
   </div>
 </article>
-        
 
-        <article class="post" id="post-extra-11" data-category="note">
+<article class="post" id="post-extra-11" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">فهمیدن بدون توضیح</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>فهمیدن بدون توضیح</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۶/۰۹/۰۶</span>
-      <span class="post-tag">درک عمیق</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۶/۰۹/۰۶</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>درک عمیق</span>
     </div>
   </header>
   <div class="post-content">
@@ -951,13 +889,13 @@
     شنیدنِ سکوت، مهارتی‌ست که هرکسی ندارد.
   </div>
 </article>
-        
+
 <article class="post" id="post-note-14" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">شبی که مه غلیظ شد</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>شبی که مه غلیظ شد</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۶/۰۸/۰۳</span>
-      <span class="post-tag">ابهام مه‌آلود</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۶/۰۸/۰۳</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>ابهام مه‌آلود</span>
     </div>
   </header>
   <div class="post-content">
@@ -968,13 +906,12 @@
   </div>
 </article>
 
-<!-- پست ۱۵ -->
 <article class="post" id="post-note-15" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">روزهای پر از تپه</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>روزهای پر از تپه</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۶/۰۴/۲۰</span>
-      <span class="post-tag">فراز و فرود</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۶/۰۴/۲۰</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>فراز و فرود</span>
     </div>
   </header>
   <div class="post-content">
@@ -987,10 +924,10 @@
 
 <article class="post" id="post-extra-12" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">آدم بالغ در عشق</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>آدم بالغ در عشق</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۶/۰۱/۲۹</span>
-      <span class="post-tag">بلوغ عاشقانه</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۶/۰۱/۲۹</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>بلوغ عاشقانه</span>
     </div>
   </header>
   <div class="post-content">
@@ -1000,12 +937,13 @@
     عشق وقتی بالغ است که خودخواهی در آن کم باشد.
   </div>
 </article>
-        <article class="post" id="post-longing-05" data-category="note">
+
+<article class="post" id="post-longing-05" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">وفاداری به چیزی نادیده</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>وفاداری به چیزی نادیده</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۶/۰۱/۲۸</span>
-      <span class="post-tag">وفاداری عمیق</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۶/۰۱/۲۸</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>وفاداری عمیق</span>
     </div>
   </header>
   <div class="post-content">
@@ -1015,13 +953,13 @@
     وفاداری وقتی زیباست که هنوز دلیلی برایش پیدا نشده.
   </div>
 </article>
-        
+
 <article class="post" id="post-note-16" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">سالِ تازه، دلِ نیمه‌کهنه</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>سالِ تازه، دلِ نیمه‌کهنه</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۶/۰۱/۱۵</span>
-      <span class="post-tag">شروع دیگر</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۶/۰۱/۱۵</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>شروع دیگر</span>
     </div>
   </header>
   <div class="post-content">
@@ -1032,13 +970,12 @@
   </div>
 </article>
 
-<!-- پست ۱۷ -->
 <article class="post" id="post-note-17" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">نامه‌ای به رویا</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>نامه‌ای به رویا</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۵/۱۰/۲۸</span>
-      <span class="post-tag">گفت‌وگوی خاموش</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۵/۱۰/۲۸</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>گفت‌وگوی خاموش</span>
     </div>
   </header>
   <div class="post-content">
@@ -1051,10 +988,10 @@
 
 <article class="post" id="post-extra-13" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">احساساتِ ظریف</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>احساساتِ ظریف</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۵/۰۷/۱۸</span>
-      <span class="post-tag">شناخت احساسی</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۵/۰۷/۱۸</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>شناخت احساسی</span>
     </div>
   </header>
   <div class="post-content">
@@ -1064,13 +1001,13 @@
     مهربانی، محافظِ احساساتِ لطیف است.
   </div>
 </article>
-        
+
 <article class="post" id="post-note-18" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">فصلی برای دیدن</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>فصلی برای دیدن</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۵/۰۶/۱۵</span>
-      <span class="post-tag">چشم تازه</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۵/۰۶/۱۵</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>چشم تازه</span>
     </div>
   </header>
   <div class="post-content">
@@ -1081,13 +1018,12 @@
   </div>
 </article>
 
-<!-- پست ۱۹ -->
 <article class="post" id="post-note-19" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">سرزمینِ بی‌عجله</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>سرزمینِ بی‌عجله</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۵/۰۲/۰۳</span>
-      <span class="post-tag">آرامش زمان</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۵/۰۲/۰۳</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>آرامش زمان</span>
     </div>
   </header>
   <div class="post-content">
@@ -1098,13 +1034,12 @@
   </div>
 </article>
 
-<!-- پست ۲۰ -->
 <article class="post" id="post-note-20" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">هدف‌های پنهان</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>هدف‌های پنهان</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۴/۱۰/۲۲</span>
-      <span class="post-tag">نیّت خاموش</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۴/۱۰/۲۲</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>نیّت خاموش</span>
     </div>
   </header>
   <div class="post-content">
@@ -1117,10 +1052,10 @@
 
 <article class="post" id="post-extra-14" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">درک تفاوت‌ها</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>درک تفاوت‌ها</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۴/۰۹/۲۱</span>
-      <span class="post-tag">روان‌شناسی جنسیت</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۴/۰۹/۲۱</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>روان‌شناسی جنسیت</span>
     </div>
   </header>
   <div class="post-content">
@@ -1130,13 +1065,13 @@
     تفاوت‌ها دشمن نیستند؛ چراغند.
   </div>
 </article>
-        
+
 <article class="post" id="post-note-21" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">یک لبخند وسط راه</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>یک لبخند وسط راه</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۴/۰۷/۰۱</span>
-      <span class="post-tag">شادی کوتاه</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۴/۰۷/۰۱</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>شادی کوتاه</span>
     </div>
   </header>
   <div class="post-content">
@@ -1147,13 +1082,12 @@
   </div>
 </article>
 
-<!-- پست ۲۲ -->
 <article class="post" id="post-note-22" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">خواب‌های رنگی</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>خواب‌های رنگی</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۴/۰۳/۱۹</span>
-      <span class="post-tag">تصویرهای زنده</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۴/۰۳/۱۹</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>تصویرهای زنده</span>
     </div>
   </header>
   <div class="post-content">
@@ -1166,10 +1100,10 @@
 
 <article class="post" id="post-extra-15" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">ارزش سکوت‌های کوتاه</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>ارزش سکوت‌های کوتاه</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۳/۰۶/۲۷</span>
-      <span class="post-tag">تأمل</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۳/۰۶/۲۷</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>تأمل</span>
     </div>
   </header>
   <div class="post-content">
@@ -1179,13 +1113,13 @@
     سکوتِ امن، نیمه‌ی پنهانِ گفت‌وگوی سالم است.
   </div>
 </article>
-        
+
 <article class="post" id="post-note-23" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">روستایی درونِ من</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>روستایی درونِ من</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۳/۰۶/۲۳</span>
-      <span class="post-tag">خانه‌ی پنهان</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۳/۰۶/۲۳</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>خانه‌ی پنهان</span>
     </div>
   </header>
   <div class="post-content">
@@ -1196,13 +1130,12 @@
   </div>
 </article>
 
-<!-- پست ۲۴ -->
 <article class="post" id="post-note-24" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">بیدار شدن‌های لایه‌لایه</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>بیدار شدن‌های لایه‌لایه</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۳/۰۲/۱۱</span>
-      <span class="post-tag">آگاهی آرام</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۳/۰۲/۱۱</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>آگاهی آرام</span>
     </div>
   </header>
   <div class="post-content">
@@ -1213,13 +1146,12 @@
   </div>
 </article>
 
-<!-- پست ۲۵ -->
 <article class="post" id="post-note-25" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">هدف به‌جای مقصد</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>هدف به‌جای مقصد</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۳/۰۱/۲۲</span>
-      <span class="post-tag">راه و معنا</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۳/۰۱/۲۲</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>راه و معنا</span>
     </div>
   </header>
   <div class="post-content">
@@ -1232,10 +1164,10 @@
 
 <article class="post" id="post-extra-16" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">شناخت زبانِ نگاه</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>شناخت زبانِ نگاه</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۲/۱۱/۱۱</span>
-      <span class="post-tag">ارتباط غیرکلامی</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۲/۱۱/۱۱</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>ارتباط غیرکلامی</span>
     </div>
   </header>
   <div class="post-content">
@@ -1245,13 +1177,13 @@
     نگاه، حقیقتی‌ست که کلمات گاهی از گفتنش می‌ترسند.
   </div>
 </article>
-        
+
 <article class="post" id="post-note-26" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">کودکی که جا نماند</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>کودکی که جا نماند</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۲/۱۰/۰۹</span>
-      <span class="post-tag">کودک درون</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۲/۱۰/۰۹</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>کودک درون</span>
     </div>
   </header>
   <div class="post-content">
@@ -1262,13 +1194,12 @@
   </div>
 </article>
 
-<!-- پست ۲۷ -->
 <article class="post" id="post-note-27" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">هدف‌های کوچکِ صمیمی</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>هدف‌های کوچکِ صمیمی</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۲/۰۷/۲۵</span>
-      <span class="post-tag">قدم‌های ریز</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۲/۰۷/۲۵</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>قدم‌های ریز</span>
     </div>
   </header>
   <div class="post-content">
@@ -1279,13 +1210,12 @@
   </div>
 </article>
 
-<!-- پست ۲۸ -->
 <article class="post" id="post-note-28" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">شب‌هایی برای نوشتن</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>شب‌هایی برای نوشتن</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۲/۰۳/۱۳</span>
-      <span class="post-tag">نوشتنِ ضروری</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۲/۰۳/۱۳</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>نوشتنِ ضروری</span>
     </div>
   </header>
   <div class="post-content">
@@ -1296,13 +1226,12 @@
   </div>
 </article>
 
-<!-- پست ۲۹ -->
 <article class="post" id="post-note-29" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">خستگی‌های بی‌نام</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>خستگی‌های بی‌نام</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۱/۱۲/۰۲</span>
-      <span class="post-tag">درون فرسوده</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۱/۱۲/۰۲</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>درون فرسوده</span>
     </div>
   </header>
   <div class="post-content">
@@ -1313,13 +1242,12 @@
   </div>
 </article>
 
-<!-- پست ۳۰ -->
 <article class="post" id="post-note-30" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">دل‌نوشته‌ای برای فردا</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>دل‌نوشته‌ای برای فردا</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۱/۰۸/۱۷</span>
-      <span class="post-tag">امید آرام</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۱/۰۸/۱۷</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>امید آرام</span>
     </div>
   </header>
   <div class="post-content">
@@ -1330,13 +1258,12 @@
   </div>
 </article>
 
-<!-- پست ۳۱ -->
 <article class="post" id="post-note-31" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">پنجره‌ای به بیرون، راهی به درون</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>پنجره‌ای به بیرون، راهی به درون</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۱/۰۵/۰۳</span>
-      <span class="post-tag">پنجره چوبی</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۱/۰۵/۰۳</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>پنجره چوبی</span>
     </div>
   </header>
   <div class="post-content">
@@ -1349,10 +1276,10 @@
 
 <article class="post" id="post-extra-17" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">هنر مراقبت</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>هنر مراقبت</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۱/۰۴/۲۲</span>
-      <span class="post-tag">محبت آگاهانه</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۱/۰۴/۲۲</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>محبت آگاهانه</span>
     </div>
   </header>
   <div class="post-content">
@@ -1362,13 +1289,13 @@
     مراقبتِ واقعی بی‌صداست؛ بدون نمایش و بدون توقع.
   </div>
 </article>
-        
+
 <article class="post" id="post-note-32" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">سالِ آرامِ درون</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>سالِ آرامِ درون</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۱/۰۲/۲۱</span>
-      <span class="post-tag">شروعی دیگر</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۱/۰۲/۲۱</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>شروعی دیگر</span>
     </div>
   </header>
   <div class="post-content">
@@ -1379,13 +1306,12 @@
   </div>
 </article>
 
-<!-- پست ۳۳ -->
 <article class="post" id="post-note-33" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">پرسش‌های بی‌جواب</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>پرسش‌های بی‌جواب</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۰/۱۰/۰۹</span>
-      <span class="post-tag">سؤال پنهان</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۰/۱۰/۰۹</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>سؤال پنهان</span>
     </div>
   </header>
   <div class="post-content">
@@ -1398,10 +1324,10 @@
 
 <article class="post" id="post-extra-18" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">زن‌ها و حس ارزشمندی</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>زن‌ها و حس ارزشمندی</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۰/۰۶/۳۰</span>
-      <span class="post-tag">نیازهای انسانی</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۰/۰۶/۳۰</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>نیازهای انسانی</span>
     </div>
   </header>
   <div class="post-content">
@@ -1411,13 +1337,13 @@
     دیدن، بزرگ‌ترین هدیه‌ی انسانی‌ست.
   </div>
 </article>
-        
+
 <article class="post" id="post-note-34" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">قولی به خودم</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>قولی به خودم</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۰/۰۶/۲۷</span>
-      <span class="post-tag">عهد درونی</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۰/۰۶/۲۷</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>عهد درونی</span>
     </div>
   </header>
   <div class="post-content">
@@ -1428,13 +1354,12 @@
   </div>
 </article>
 
-<!-- پست ۳۵ -->
 <article class="post" id="post-note-35" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">روزهای شلوغ، شب‌های آرام</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>روزهای شلوغ، شب‌های آرام</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۹۰/۰۳/۱۵</span>
-      <span class="post-tag">دو جهان</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۹۰/۰۳/۱۵</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>دو جهان</span>
     </div>
   </header>
   <div class="post-content">
@@ -1445,13 +1370,12 @@
   </div>
 </article>
 
-<!-- پست ۳۶ -->
 <article class="post" id="post-note-36" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">پله‌ای به سمت درون</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>پله‌ای به سمت درون</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۸۹/۱۲/۰۵</span>
-      <span class="post-tag">گام آرام</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۸۹/۱۲/۰۵</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>گام آرام</span>
     </div>
   </header>
   <div class="post-content">
@@ -1464,10 +1388,10 @@
 
 <article class="post" id="post-extra-19" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">تعادل در ابراز عشق</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>تعادل در ابراز عشق</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۸۹/۱۰/۱۶</span>
-      <span class="post-tag">رابطه سالم</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۸۹/۱۰/۱۶</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>رابطه سالم</span>
     </div>
   </header>
   <div class="post-content">
@@ -1477,13 +1401,13 @@
     افراط دشمنِ ماندگاری‌ست.
   </div>
 </article>
-        
+
 <article class="post" id="post-note-37" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">خواب‌هایی برای دل</h></h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>خواب‌هایی برای دل</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۸۹/۰۶/۱۴</span>
-      <span class="post-tag">استراحت روح</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۸۹/۰۶/۱۴</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>استراحت روح</span>
     </div>
   </header>
   <div class="post-content">
@@ -1494,13 +1418,12 @@
   </div>
 </article>
 
-<!-- پست ۳۸ -->
 <article class="post" id="post-note-38" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">خنده‌های دور</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>خنده‌های دور</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۸۹/۰۴/۰۴</span>
-      <span class="post-tag">شادی مبهم</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۸۹/۰۴/۰۴</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>شادی مبهم</span>
     </div>
   </header>
   <div class="post-content">
@@ -1511,13 +1434,12 @@
   </div>
 </article>
 
-<!-- پست ۳۹ -->
 <article class="post" id="post-note-39" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">تپه‌ها قضاوت نمی‌کنند</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>تپه‌ها قضاوت نمی‌کنند</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۸۹/۰۱/۲۲</span>
-      <span class="post-tag">آزادی بی‌صدا</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۸۹/۰۱/۲۲</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>آزادی بی‌صدا</span>
     </div>
   </header>
   <div class="post-content">
@@ -1528,13 +1450,12 @@
   </div>
 </article>
 
-<!-- پست ۴۰ -->
 <article class="post" id="post-note-40" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">دخترِ شبیهِ من</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>دخترِ شبیهِ من</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۸۸/۱۱/۱۲</span>
-      <span class="post-tag">چهره‌ی موازی</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۸۸/۱۱/۱۲</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>چهره‌ی موازی</span>
     </div>
   </header>
   <div class="post-content">
@@ -1545,13 +1466,12 @@
   </div>
 </article>
 
-<!-- پست ۴۱ -->
 <article class="post" id="post-note-41" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">تپه‌هایی تا زانو</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>تپه‌هایی تا زانو</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۸۸/۰۹/۰۲</span>
-      <span class="post-tag">سرزمین کوتاه</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۸۸/۰۹/۰۲</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>سرزمین کوتاه</span>
     </div>
   </header>
   <div class="post-content">
@@ -1564,10 +1484,10 @@
 
 <article class="post" id="post-extra-20" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">آمادگی برای عشق آینده</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>آمادگی برای عشق آینده</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۸۸/۰۸/۰۵</span>
-      <span class="post-tag">خودسازی عاشقانه</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۸۸/۰۸/۰۵</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>خودسازی عاشقانه</span>
     </div>
   </header>
   <div class="post-content">
@@ -1577,13 +1497,13 @@
     بهترین هدیه‌ای که می‌توانی به عشق آینده‌ات بدهی، نسخه‌ی سالمِ خودت است.
   </div>
 </article>
-        
+
 <article class="post" id="post-note-42" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">آینه‌ای که جواب نداد</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>آینه‌ای که جواب نداد</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۸۸/۰۶/۲۰</span>
-      <span class="post-tag">آینه و چهره</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۸۸/۰۶/۲۰</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>آینه و چهره</span>
     </div>
   </header>
   <div class="post-content">
@@ -1594,13 +1514,12 @@
   </div>
 </article>
 
-<!-- پست ۴۳ -->
 <article class="post" id="post-note-43" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">خانه‌ای میان تپه‌ها</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>خانه‌ای میان تپه‌ها</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۸۷/۱۱/۱۸</span>
-      <span class="post-tag">خواب روستایی</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۸۷/۱۱/۱۸</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>خواب روستایی</span>
     </div>
   </header>
   <div class="post-content">
@@ -1611,13 +1530,12 @@
   </div>
 </article>
 
-<!-- پست ۴۴ -->
 <article class="post" id="post-note-44" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">موهایی که یادم نرفت</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>موهایی که یادم نرفت</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۸۷/۰۹/۰۸</span>
-      <span class="post-tag">تصویر محو</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۸۷/۰۹/۰۸</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>تصویر محو</span>
     </div>
   </header>
   <div class="post-content">
@@ -1628,13 +1546,12 @@
   </div>
 </article>
 
-<!-- پست ۴۵ -->
 <article class="post" id="post-note-45" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">قدیمی‌های قدبلند</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>قدیمی‌های قدبلند</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۸۷/۰۴/۱۶</span>
-      <span class="post-tag">آدم‌های دور</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۸۷/۰۴/۱۶</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>آدم‌های دور</span>
     </div>
   </header>
   <div class="post-content">
@@ -1645,13 +1562,12 @@
   </div>
 </article>
 
-<!-- پست ۴۶ -->
 <article class="post" id="post-note-46" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">صبحِ بعد از رویا</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>صبحِ بعد از رویا</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۸۷/۰۲/۰۶</span>
-      <span class="post-tag">بیداری آرام</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۸۷/۰۲/۰۶</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>بیداری آرام</span>
     </div>
   </header>
   <div class="post-content">
@@ -1662,13 +1578,12 @@
   </div>
 </article>
 
-<!-- پست ۴۷ -->
 <article class="post" id="post-note-47" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">کسی که صدا نزد</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>کسی که صدا نزد</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۸۶/۱۱/۲۴</span>
-      <span class="post-tag">سکوتِ دعوت</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۸۶/۱۱/۲۴</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>سکوتِ دعوت</span>
     </div>
   </header>
   <div class="post-content">
@@ -1679,13 +1594,12 @@
   </div>
 </article>
 
-<!-- پست ۴۸ -->
 <article class="post" id="post-note-48" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">اولین تپه‌ی خواب</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>اولین تپه‌ی خواب</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۸۶/۰۹/۱۴</span>
-      <span class="post-tag">آغاز رویا</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۸۶/۰۹/۱۴</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>آغاز رویا</span>
     </div>
   </header>
   <div class="post-content">
@@ -1696,13 +1610,12 @@
   </div>
 </article>
 
-<!-- پست ۴۹ (قدیمی‌ترین) -->
 <article class="post" id="post-note-49" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">نخستین قدم روی تپه‌ها</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>نخستین قدم روی تپه‌ها</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۸۶/۰۷/۰۴</span>
-      <span class="post-tag">اولین نشانه</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۸۶/۰۷/۰۴</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>اولین نشانه</span>
     </div>
   </header>
   <div class="post-content">
@@ -1715,13 +1628,13 @@
 
 <article class="post" id="post-14040903-note" data-category="note">
   <header class="post-header">
-    <h2 class="post-title">در آینه‌ی خوابی دور</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>در آینه‌ی خوابی دور</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۸۶/۱۱/۰۵</span>
-      <span class="post-tag">رویای مبهم</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۸۶/۱۱/۰۵</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>رویای مبهم</span>
     </div>
   </header>
-   <div class="post-content">
+  <div class="post-content">
     گاهی رؤیا دری به سوی جایی می‌گشاید که هیچ نقشه‌ای نشانش نمی‌دهد؛
     و من، شبی در خوابی که بوی قدیم می‌داد، به سرزمینی پا گذاشتم که جهانش از تپه‌های نرم و کوتاه ساخته شده بود؛
     تپه‌هایی تا زانوی آدم، و مردمانی که قدشان بلندتر از هر تصویرِ این زمان بود، آرام و خاموش مانند یادگاری از گذشته‌ای دور.
@@ -1733,66 +1646,59 @@
     آن‌چنان که نمی‌دانستم رؤیا با من شوخی می‌کند یا خودم را در زمانی دیگر می‌بینم.
     در آن سکونِ روشن فهمیدم گاهی خواب، حافظه‌ای پنهان است که تنها در تاریک‌ترین لحظهٔ شب، به یاد می‌آید.
   </div>
-
   <div class="post-footer">
     شاید هر رؤیا پیامی باشد که راهش از دلِ سکوت عبور می‌کند و تنها برای کسی می‌رسد که بیدار شده باشد.
   </div>
 </article>
-       
 
-      <!-- پست نمونه: شعر -->
 <article class="post poem" id="post-14040901-poem" data-category="poem">
   <header class="post-header">
-    <h2 class="post-title">دیگه بیدار شدم</h2>
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-book"></use></svg>دیگه بیدار شدم</h2>
     <div class="post-meta">
-      <span class="post-date">۱۳۸۶/۰۶/۱۹</span>
-      <span class="post-tag">شعر</span>
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۸۶/۰۶/۱۹</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>شعر</span>
     </div>
   </header>
   <div class="post-content">
     <span>می‌وزد نوری پنهان، پرده‌ها را می‌کَنَد</span>
-    <span>گامِ خاموشِ مسیرم ردِّ رؤیا می‌زند</span>
-    <span>جستجو با پرده‌گردانی به حیرت می‌رسد</span>
-    <span>طرحِ بی‌رنگی زِ جایی دور، در جان می‌تند</span>
-
-    <span>هرچه می‌پویم، فروتر می‌رود راز از نظر</span>
-    <span>موجی از خاموشیِ محض، از درون سر می‌زند</span>
-    <span>بوی مه در لابه‌لایِ لحظه‌ها پنهان شده</span>
-    <span>رشته‌ای از بی‌نشانی‌ها به روحم می‌چکد</span>
-
-    <span>راه می‌لغزد زیر پایم، سوی نامعلومِ دور</span>
-    <span>ضربِ برگِ باد بر شب، پرده‌ای را می‌دَرَد</span>
-    <span>هرچه نزدیک‌تر شوم، آفاق دورم می‌کند</span>
-    <span>گویی این رفتن به رفتن، مقصدِ دیگر بَرَد</span>
-
-    <span>شب به سرمه رفته و در چینِ تاریکیِ آن</span>
-    <span>نقشِ ناپیدایی از جایی نهان سر می‌زند</span>
+<span>گامِ خاموشِ مسیرم ردِّ رؤیا می‌زند</span>
+<span>جستجو با پرده‌گردانی به حیرت می‌رسد</span>
+<span>طرحِ بی‌رنگی زِ جایی دور، در جان می‌تند</span>
+<span>هرچه می‌پویم، فروتر می‌رود راز از نظر</span>
+<span>موجی از خاموشیِ محض، از درون سر می‌زند</span>
+<span>بوی مه در لابه‌لایِ لحظه‌ها پنهان شده</span>
+<span>رشته‌ای از بی‌نشانی‌ها به روحم می‌چکد</span>
+<span>راه می‌لغزد زیر پایم، سوی نامعلومِ دور</span>
+<span>ضربِ برگِ باد بر شب، پرده‌ای را می‌دَرَد</span>
+<span>هرچه نزدیک‌تر شوم، آفاق دورم می‌کند</span>
+<span>گویی این رفتن به رفتن، مقصدِ دیگر بَرَد</span>
+<span>شب به سرمه رفته و در چینِ تاریکیِ آن</span>
+<span>نقشِ ناپیدایی از جایی نهان سر می‌زند</span>
   </div>
-
   <div class="post-footer">
     نوشته شده در صبح ساعت ۱۰:۱۹
   </div>
 </article>
 
- <!-- پست نمونه: یادداشت (جدیدترین) -->
-        <article class="post" id="post-14040903-note" data-category="note">
-          <header class="post-header">
-            <h2 class="post-title">آمدم که بنویسم</h2>
-            <div class="post-meta">
-              <span class="post-date">۱۳۸۶/۰۶/۱۸</span>
-              <span class="post-tag">شروعی عجیب</span>
-            </div>
-          </header>
-          <div class="post-content">
-اصلا نمیدانم چه خبر شده انگار یکی مرا بیدار کرد برای فردا لباس های نو بپوشم و منتظر یک خبری باشم . 
-          </div>
-          <div class="post-footer">
-            ثبت شده برای این‌که فراموش نشود
-          </div>
-        </article>
-        
+<article class="post" id="post-14040903-note-1" data-category="note">
+  <header class="post-header">
+    <h2 class="post-title"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg>آمدم که بنویسم</h2>
+    <div class="post-meta">
+      <span class="post-date"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg>۱۳۸۶/۰۶/۱۸</span>
+      <span class="post-tag"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-tag"></use></svg>شروعی عجیب</span>
+    </div>
+  </header>
+  <div class="post-content">
+    اصلا نمیدانم چه خبر شده انگار یکی مرا بیدار کرد برای فردا لباس های نو بپوشم و منتظر یک خبری باشم .
+  </div>
+  <div class="post-footer">
+    ثبت شده برای این‌که فراموش نشود
+  </div>
+</article>
+      </section>
 
-      <!-- فوتر سایت -->
+      <p class="empty-state" id="emptyState" style="display:none;">نوشته‌ای در این دسته پیدا نشد.</p>
+
       <footer class="site-footer">
         <span>© همه‌ی نوشته‌ها متعلق به من است.</span>
         <span>این صفحات توسط خودم کدنویسی شده</span>
@@ -1802,109 +1708,11 @@
   </main>
 </div>
 
-<!-- دکمه بازگشت به بالا -->
 <button class="back-to-top" id="backToTop" type="button" aria-label="بازگشت به بالای صفحه">
-  <span>⬆️</span>
-  <span>بالای صفحه</span>
+  <svg class="icon" viewBox="0 0 24 24"><use href="#icon-arrow-up"></use></svg>
+  <span class="label">بالای صفحه</span>
 </button>
-<script>
-  // لیست آهنگ‌ها
-  
-  // تم روشن/تاریک
-  (function () {
-    const body = document.body;
-    const themeText = document.getElementById("themeText");
-    const savedTheme = localStorage.getItem("diary-theme");
-    const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-    function applyTheme(theme) {
-      body.classList.toggle("dark", theme === "dark");
-      themeText.textContent = theme === "dark" ? "حالت تاریک" : "حالت روشن";
-    }
-    applyTheme(savedTheme || (prefersDark ? "dark" : "light"));
-
-    document.getElementById("themeToggle").addEventListener("click", () => {
-      const next = body.classList.contains("dark") ? "light" : "dark";
-      applyTheme(next);
-      localStorage.setItem("diary-theme", next);
-    });
-  })();
-
-  // بازگشت به بالا
-  (function () {
-    const backBtn = document.getElementById("backToTop");
-    window.addEventListener("scroll", () => backBtn.classList.toggle("show", window.scrollY > 200));
-    backBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
-  })();
-
-  // فیلتر دسته‌بندی
-  (function () {
-    document.querySelectorAll(".category-btn").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const filter = btn.dataset.filter;
-        document.querySelectorAll(".category-btn").forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        document.querySelectorAll(".post").forEach(post => post.classList.toggle("hidden-by-filter", filter !== "all" && post.dataset.category !== filter));
-      });
-    });
-  })();
-</script>
-
-<!-- PWA نصب -->
-<script>
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js'));
-}
-
-let deferredPrompt;
-window.addEventListener('beforeinstallprompt', e => {
-  e.preventDefault();
-  deferredPrompt = e;
-  const btn = document.createElement('button');
-  btn.textContent = '📲 نصب اپ';
-  btn.className = "install-btn";
-  document.body.appendChild(btn);
-  btn.addEventListener('click', () => {
-    btn.remove();
-    deferredPrompt.prompt();
-    deferredPrompt.userChoice.finally(() => deferredPrompt = null);
-  });
-});
-</script>
-
+<script src="app.js" defer></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

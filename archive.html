@@ -1,12 +1,39 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa" dir="rtl" data-theme="kraft">
 <head>
   <meta charset="UTF-8">
   <title>آرشیو نوشته‌ها</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="دفتر خاطرات و شعرهای شخصی؛ یادداشت‌ها، خاطره‌ها و شعرهایی از دل زندگی روزمره.">
+  <meta name="google-site-verification" content="lLKFR3RpW9l94evnNTTjwUzE2w1hglJWkksU-WrJtC0" />
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#9c3b3b">
+  <link rel="icon" href="icons/icon-192.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<svg class="icon-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <symbol id="icon-home" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h5v-6h4v6h5V10"/></symbol>
+    <symbol id="icon-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></symbol>
+    <symbol id="icon-archive" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="4" rx="1"/><path d="M5 8v11a1 1 0 001 1h12a1 1 0 001-1V8"/><line x1="10" y1="13" x2="14" y2="13"/></symbol>
+    <symbol id="icon-palette" viewBox="0 0 24 24"><path d="M12 3a9 9 0 100 18c1.1 0 2-.9 2-2 0-.5-.2-1-.5-1.4-.3-.4-.5-.8-.5-1.3 0-1 .8-1.8 1.8-1.8H17a4 4 0 004-4c0-4.4-4-7.5-9-7.5Z"/><circle cx="7.5" cy="10.5" r="1" fill="currentColor" stroke="none"/><circle cx="10.5" cy="7.2" r="1" fill="currentColor" stroke="none"/><circle cx="15" cy="8" r="1" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="icon-feather" viewBox="0 0 24 24"><path d="M14.5 4.5l5 5L8 21H3v-5L14.5 4.5z"/><path d="M12.5 6.5l5 5"/></symbol>
+    <symbol id="icon-book" viewBox="0 0 24 24"><path d="M4 5c2-1 5-1 7 0v14c-2-1-5-1-7 0V5z"/><path d="M20 5c-2-1-5-1-7 0v14c2-1 5-1 7 0V5z"/></symbol>
+    <symbol id="icon-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M8 3v4M16 3v4"/></symbol>
+    <symbol id="icon-tag" viewBox="0 0 24 24"><path d="M20.6 12.9L12.9 20.6a2 2 0 01-2.8 0l-7.7-7.7a2 2 0 010-2.8L10.1 2.4H18a2 2 0 012 2v7.9a2 2 0 01-.6 1.4z"/><circle cx="14.5" cy="7.5" r="1.4" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="icon-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></symbol>
+    <symbol id="icon-download" viewBox="0 0 24 24"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></symbol>
+    <symbol id="icon-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24"><path d="M5 12l5 5 9-9"/></symbol>
+    <symbol id="icon-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
+  </defs>
+</svg>
 
 <div class="page-wrapper">
   <main class="notebook">
@@ -14,59 +41,926 @@
 
       <header class="site-header">
         <div class="site-header-top">
-          <div class="title-block">
-            <h1>آرشیو نوشته‌ها</h1>
-            <p>لیست همه‌ی شعرها، یادداشت‌ها و خاطره‌ها به ترتیب تاریخ.</p>
+          <div class="brand">
+            <div class="brand-mark" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24" width="22" height="22"><use href="#icon-feather"></use></svg>
+            </div>
+            <div class="title-block">
+              <h1>آرشیو نوشته‌ها</h1>
+              <p>لیست همه‌ی شعرها و یادداشت‌ها به ترتیب.</p>
+              <div class="ink-flourish" aria-hidden="true"></div>
+            </div>
           </div>
 
-          <div class="header-actions">
-            <button class="theme-toggle" id="themeToggle" type="button" aria-label="تغییر حالت روشن و تاریک">
-              <span class="toggle-label" id="themeText">حالت روشن</span>
-              <span class="toggle-track">
-                <span class="toggle-thumb"></span>
-              </span>
+        <div class="header-actions">
+          <button class="theme-picker-btn" id="themePickerBtn" type="button" aria-haspopup="true" aria-expanded="false">
+            <span class="theme-swatch-dot" aria-hidden="true"></span>
+            <span>تم: <span id="currentThemeName">کاغذ کاهی</span></span>
+            <svg class="icon" viewBox="0 0 24 24" width="14" height="14"><use href="#icon-palette"></use></svg>
+          </button>
+          <div class="theme-panel" id="themePanel" role="menu">
+            <button class="theme-option" data-theme="kraft" type="button">
+              <span class="swatch-check"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-check"></use></svg></span>
+              <span class="swatch-preview p-kraft"></span>
+              کاغذ کاهی
+            </button>
+            <button class="theme-option" data-theme="night" type="button">
+              <span class="swatch-check"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-check"></use></svg></span>
+              <span class="swatch-preview p-night"></span>
+              شب مهتابی
+            </button>
+            <button class="theme-option" data-theme="autumn" type="button">
+              <span class="swatch-check"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-check"></use></svg></span>
+              <span class="swatch-preview p-autumn"></span>
+              برگ پاییز
+            </button>
+            <button class="theme-option" data-theme="sea" type="button">
+              <span class="swatch-check"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-check"></use></svg></span>
+              <span class="swatch-preview p-sea"></span>
+              دریای شمال
+            </button>
+            <button class="theme-option" data-theme="petal" type="button">
+              <span class="swatch-check"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-check"></use></svg></span>
+              <span class="swatch-preview p-petal"></span>
+              گلبرگ صورتی
             </button>
           </div>
         </div>
-
+        </div>
         <nav class="main-nav">
-          <a href="index.html" class="nav-link">خانه</a>
-          <a href="about.html" class="nav-link">درباره من</a>
-          <a href="archive.html" class="nav-link nav-active">آرشیو</a>
+          <a href="index.html" class="nav-link"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-home"></use></svg>خانه</a>
+          <a href="about.html" class="nav-link"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-user"></use></svg>درباره من</a>
+          <a href="archive.html" class="nav-link nav-active"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-archive"></use></svg>آرشیو</a>
         </nav>
       </header>
 
-      <!-- آرشیو ساده براساس داده‌های فعلی -->
       <section>
-        <h2 style="font-size:1rem; margin-bottom:0.5rem;">۱۴۰۴</h2>
+        <div class="archive-toolbar">
+          <svg class="icon" viewBox="0 0 24 24"><use href="#icon-search"></use></svg>
+          <input type="search" id="archiveSearch" placeholder="جست‌وجو در عنوان یا برچسب...">
+        </div>
+        <p class="archive-count" id="archiveCount">86 نوشته</p>
         <ul class="archive-list">
-
-          <li class="archive-item">
-            <span class="archive-date">۱۴۰۴/۰۹/۰۳</span>
-            <span class="archive-tag">یادداشت</span>
-            <a href="index.html#post-14040903-note">یادداشت کوتاه شبانه</a>
+<li class="archive-item" data-search="وقتی دیگر حرفی نمانده بود پس از یک گفتگوی تلخ">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-14050316">وقتی دیگر حرفی نمانده بود</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۴۰۵/۰۳/۱۶</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> پس از یک گفتگوی تلخ</span>
+              </span>
+            </div>
           </li>
-
-          <li class="archive-item">
-            <span class="archive-date">۱۴۰۴/۰۹/۰۱</span>
-            <span class="archive-tag">شعر</span>
-            <a href="index.html#post-14040901-poem">شعر: تویی آغاز هر لبخند</a>
+<li class="archive-item poem" data-search="ماه تابانِ من شعر">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-book"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-14041001-poem2">ماه تابانِ من</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۴۰۴/۱۰/۰۱</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> شعر</span>
+              </span>
+            </div>
           </li>
-
-          <li class="archive-item">
-            <span class="archive-date">۱۴۰۴/۰۸/۲۹</span>
-            <span class="archive-tag">خاطره</span>
-            <a href="index.html#post-14040829-memory">یک عصر پاییزی آرام</a>
+<li class="archive-item poem" data-search="در بهشتِ جانِ تو شعر">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-book"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-14041001-poem">در بهشتِ جانِ تو</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۴۰۴/۱۰/۰۱</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> شعر</span>
+              </span>
+            </div>
           </li>
-
-          <!-- هر پست جدید که به index اضافه کردی، اینجا هم به همین شکل اضافه کن -->
-          <!-- مثال:
-          <li class="archive-item">
-            <span class="archive-date">۱۴۰۴/۰۹/۱۰</span>
-            <span class="archive-tag">شعر</span>
-            <a href="index.html#post-۱۴۰۴۰۹۱۰-poem">عنوان شعر جدید</a>
+<li class="archive-item poem" data-search="در بندِ زلفِ پریشان شعر">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-book"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-14040925-poem">در بندِ زلفِ پریشان</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۴۰۴/۰۹/۲۵</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> شعر</span>
+              </span>
+            </div>
           </li>
-          -->
+<li class="archive-item poem" data-search="محبوبِ نورِ ماه شعر">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-book"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-14040408-poem">محبوبِ نورِ ماه</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۴۰۴/۰۴/۰۸</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> شعر</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="بعد از این همه سکوت بازگشتِ بی‌نظم">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-14031216">بعد از این همه سکوت</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۴۰۳/۱۲/۱۶</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> بازگشتِ بی‌نظم</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="یادداشت برای فراموش‌نشدن ثبت رویا">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-01">یادداشت برای فراموش‌نشدن</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۴۰۲/۰۴/۱۲</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> ثبت رویا</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="ظرافت در فهم انسان شناخت آدم‌ها">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-extra-01">ظرافت در فهم انسان</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۴۰۲/۰۳/۱۹</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> شناخت آدم‌ها</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="رویای راه‌رفتن حرکت آرام">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-02">رویای راه‌رفتن</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۴۰۲/۰۱/۱۰</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> حرکت آرام</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="بلوغ احساسی رشد فردی">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-extra-02">بلوغ احساسی</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۴۰۱/۱۰/۲۷</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> رشد فردی</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="احترام به پیچیدگی‌ها روان زنان">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-extra-03">احترام به پیچیدگی‌ها</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۴۰۱/۰۵/۱۸</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> روان زنان</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item poem" data-search="آرامِ شبی که نمی‌آید شعر">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-book"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-14010223-poem">آرامِ شبی که نمی‌آید</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۴۰۱/۰۲/۲۳</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> شعر</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="صبرِ باشکوه فلسفه‌ی انتظار">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-extra-04">صبرِ باشکوه</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۴۰۰/۱۱/۰۹</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> فلسفه‌ی انتظار</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="لحنِ آرام گفتگو هنر ارتباط">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-extra-05">لحنِ آرام گفتگو</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۹/۱۲/۲۱</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> هنر ارتباط</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="دیگه بیدارم لحظه‌ی فهمیدن">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-03">دیگه بیدارم</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۹/۱۲/۱۵</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> لحظه‌ی فهمیدن</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="زمستانِ خانه‌ی چوبی سردی و گرما">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-04">زمستانِ خانه‌ی چوبی</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۹/۱۲/۰۲</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> سردی و گرما</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item poem" data-search="هاتفِ پنهان شعر">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-book"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-13991029-poem">هاتفِ پنهان</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۹/۱۰/۲۹</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> شعر</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="بی‌قراری‌های بی‌صدا بی‌قراری آرام">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-longing-01">بی‌قراری‌های بی‌صدا</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۹/۰۹/۲۱</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> بی‌قراری آرام</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="پاییزِ بلندقد زمان کش‌دار">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-05">پاییزِ بلندقد</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۹/۰۷/۳۰</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> زمان کش‌دار</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="چگونه دوست داشتن محبت سالم">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-extra-06">چگونه دوست داشتن</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۹/۰۵/۰۷</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> محبت سالم</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="تابستانِ کُند گرمای آرام">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-06">تابستانِ کُند</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۹/۰۴/۱۹</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> گرمای آرام</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="دوباره از نو نوشتن بازآغاز">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-07">دوباره از نو نوشتن</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۹/۰۲/۰۲</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> بازآغاز</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="انتظارهای بی‌نام انتظار نجیب">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-longing-02">انتظارهای بی‌نام</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۸/۱۲/۰۳</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> انتظار نجیب</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="پاییزِ روی تپه‌های کوتاه رنگِ افتادن">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-08">پاییزِ روی تپه‌های کوتاه</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۸/۰۹/۲۵</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> رنگِ افتادن</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="زنان و جزئیات شناخت جزئی">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-extra-07">زنان و جزئیات</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۸/۰۹/۲۴</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> شناخت جزئی</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="فرار از شهر، پناه به رویا خستگی شهری">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-09">فرار از شهر، پناه به رویا</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۸/۰۵/۱۸</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> خستگی شهری</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="آرامشِ درونی سلامت روان">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-extra-08">آرامشِ درونی</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۸/۰۲/۱۶</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> سلامت روان</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="بهار در سرزمین خواب بهار درون">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-10">بهار در سرزمین خواب</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۸/۰۱/۰۷</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> بهار درون</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="زن‌ها و حس امنیت نیاز انسانی">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-extra-09">زن‌ها و حس امنیت</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۷/۱۰/۰۱</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> نیاز انسانی</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="بازگشتِ تصویر محو حضور خاموش">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-11">بازگشتِ تصویر محو</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۷/۰۹/۱۰</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> حضور خاموش</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="محبوبی که نیست دلتنگی بی‌صورت">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-longing-03">محبوبی که نیست</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۷/۰۷/۱۸</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> دلتنگی بی‌صورت</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="روزی برای خندیدنِ بی‌دلیل شادی ساده">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-12">روزی برای خندیدنِ بی‌دلیل</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۷/۰۵/۲۹</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> شادی ساده</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="فرصت دادن صبر انسانی">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-extra-10">فرصت دادن</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۷/۰۲/۲۰</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> صبر انسانی</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="هدفِ بی‌نقاب نیت آرام">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-13">هدفِ بی‌نقاب</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۷/۰۲/۱۱</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> نیت آرام</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item poem" data-search="از خدا خواهم که محبوب آید شعر">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-book"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-13961201-poem">از خدا خواهم که محبوب آید</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۶/۱۲/۰۱</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> شعر</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="دل‌آشوبِ بی‌دلیل تپش پنهان">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-longing-04">دل‌آشوبِ بی‌دلیل</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۶/۰۹/۱۲</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> تپش پنهان</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="فهمیدن بدون توضیح درک عمیق">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-extra-11">فهمیدن بدون توضیح</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۶/۰۹/۰۶</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> درک عمیق</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="شبی که مه غلیظ شد ابهام مه‌آلود">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-14">شبی که مه غلیظ شد</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۶/۰۸/۰۳</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> ابهام مه‌آلود</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="روزهای پر از تپه فراز و فرود">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-15">روزهای پر از تپه</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۶/۰۴/۲۰</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> فراز و فرود</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="آدم بالغ در عشق بلوغ عاشقانه">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-extra-12">آدم بالغ در عشق</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۶/۰۱/۲۹</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> بلوغ عاشقانه</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="وفاداری به چیزی نادیده وفاداری عمیق">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-longing-05">وفاداری به چیزی نادیده</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۶/۰۱/۲۸</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> وفاداری عمیق</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="سالِ تازه، دلِ نیمه‌کهنه شروع دیگر">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-16">سالِ تازه، دلِ نیمه‌کهنه</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۶/۰۱/۱۵</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> شروع دیگر</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="نامه‌ای به رویا گفت‌وگوی خاموش">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-17">نامه‌ای به رویا</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۵/۱۰/۲۸</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> گفت‌وگوی خاموش</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="احساساتِ ظریف شناخت احساسی">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-extra-13">احساساتِ ظریف</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۵/۰۷/۱۸</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> شناخت احساسی</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="فصلی برای دیدن چشم تازه">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-18">فصلی برای دیدن</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۵/۰۶/۱۵</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> چشم تازه</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="سرزمینِ بی‌عجله آرامش زمان">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-19">سرزمینِ بی‌عجله</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۵/۰۲/۰۳</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> آرامش زمان</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="هدف‌های پنهان نیّت خاموش">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-20">هدف‌های پنهان</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۴/۱۰/۲۲</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> نیّت خاموش</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="درک تفاوت‌ها روان‌شناسی جنسیت">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-extra-14">درک تفاوت‌ها</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۴/۰۹/۲۱</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> روان‌شناسی جنسیت</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="یک لبخند وسط راه شادی کوتاه">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-21">یک لبخند وسط راه</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۴/۰۷/۰۱</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> شادی کوتاه</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="خواب‌های رنگی تصویرهای زنده">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-22">خواب‌های رنگی</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۴/۰۳/۱۹</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> تصویرهای زنده</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="ارزش سکوت‌های کوتاه تأمل">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-extra-15">ارزش سکوت‌های کوتاه</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۳/۰۶/۲۷</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> تأمل</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="روستایی درونِ من خانه‌ی پنهان">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-23">روستایی درونِ من</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۳/۰۶/۲۳</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> خانه‌ی پنهان</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="بیدار شدن‌های لایه‌لایه آگاهی آرام">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-24">بیدار شدن‌های لایه‌لایه</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۳/۰۲/۱۱</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> آگاهی آرام</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="هدف به‌جای مقصد راه و معنا">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-25">هدف به‌جای مقصد</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۳/۰۱/۲۲</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> راه و معنا</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="شناخت زبانِ نگاه ارتباط غیرکلامی">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-extra-16">شناخت زبانِ نگاه</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۲/۱۱/۱۱</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> ارتباط غیرکلامی</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="کودکی که جا نماند کودک درون">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-26">کودکی که جا نماند</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۲/۱۰/۰۹</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> کودک درون</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="هدف‌های کوچکِ صمیمی قدم‌های ریز">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-27">هدف‌های کوچکِ صمیمی</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۲/۰۷/۲۵</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> قدم‌های ریز</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="شب‌هایی برای نوشتن نوشتنِ ضروری">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-28">شب‌هایی برای نوشتن</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۲/۰۳/۱۳</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> نوشتنِ ضروری</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="خستگی‌های بی‌نام درون فرسوده">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-29">خستگی‌های بی‌نام</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۱/۱۲/۰۲</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> درون فرسوده</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="دل‌نوشته‌ای برای فردا امید آرام">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-30">دل‌نوشته‌ای برای فردا</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۱/۰۸/۱۷</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> امید آرام</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="پنجره‌ای به بیرون، راهی به درون پنجره چوبی">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-31">پنجره‌ای به بیرون، راهی به درون</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۱/۰۵/۰۳</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> پنجره چوبی</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="هنر مراقبت محبت آگاهانه">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-extra-17">هنر مراقبت</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۱/۰۴/۲۲</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> محبت آگاهانه</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="سالِ آرامِ درون شروعی دیگر">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-32">سالِ آرامِ درون</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۱/۰۲/۲۱</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> شروعی دیگر</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="پرسش‌های بی‌جواب سؤال پنهان">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-33">پرسش‌های بی‌جواب</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۰/۱۰/۰۹</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> سؤال پنهان</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="زن‌ها و حس ارزشمندی نیازهای انسانی">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-extra-18">زن‌ها و حس ارزشمندی</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۰/۰۶/۳۰</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> نیازهای انسانی</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="قولی به خودم عهد درونی">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-34">قولی به خودم</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۰/۰۶/۲۷</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> عهد درونی</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="روزهای شلوغ، شب‌های آرام دو جهان">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-35">روزهای شلوغ، شب‌های آرام</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۹۰/۰۳/۱۵</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> دو جهان</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="پله‌ای به سمت درون گام آرام">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-36">پله‌ای به سمت درون</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۸۹/۱۲/۰۵</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> گام آرام</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="تعادل در ابراز عشق رابطه سالم">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-extra-19">تعادل در ابراز عشق</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۸۹/۱۰/۱۶</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> رابطه سالم</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="خواب‌هایی برای دل استراحت روح">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-37">خواب‌هایی برای دل</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۸۹/۰۶/۱۴</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> استراحت روح</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="خنده‌های دور شادی مبهم">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-38">خنده‌های دور</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۸۹/۰۴/۰۴</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> شادی مبهم</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="تپه‌ها قضاوت نمی‌کنند آزادی بی‌صدا">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-39">تپه‌ها قضاوت نمی‌کنند</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۸۹/۰۱/۲۲</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> آزادی بی‌صدا</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="دخترِ شبیهِ من چهره‌ی موازی">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-40">دخترِ شبیهِ من</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۸۸/۱۱/۱۲</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> چهره‌ی موازی</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="تپه‌هایی تا زانو سرزمین کوتاه">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-41">تپه‌هایی تا زانو</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۸۸/۰۹/۰۲</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> سرزمین کوتاه</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="آمادگی برای عشق آینده خودسازی عاشقانه">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-extra-20">آمادگی برای عشق آینده</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۸۸/۰۸/۰۵</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> خودسازی عاشقانه</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="آینه‌ای که جواب نداد آینه و چهره">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-42">آینه‌ای که جواب نداد</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۸۸/۰۶/۲۰</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> آینه و چهره</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="خانه‌ای میان تپه‌ها خواب روستایی">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-43">خانه‌ای میان تپه‌ها</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۸۷/۱۱/۱۸</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> خواب روستایی</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="موهایی که یادم نرفت تصویر محو">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-44">موهایی که یادم نرفت</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۸۷/۰۹/۰۸</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> تصویر محو</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="قدیمی‌های قدبلند آدم‌های دور">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-45">قدیمی‌های قدبلند</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۸۷/۰۴/۱۶</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> آدم‌های دور</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="صبحِ بعد از رویا بیداری آرام">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-46">صبحِ بعد از رویا</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۸۷/۰۲/۰۶</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> بیداری آرام</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="کسی که صدا نزد سکوتِ دعوت">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-47">کسی که صدا نزد</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۸۶/۱۱/۲۴</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> سکوتِ دعوت</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="اولین تپه‌ی خواب آغاز رویا">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-48">اولین تپه‌ی خواب</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۸۶/۰۹/۱۴</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> آغاز رویا</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="نخستین قدم روی تپه‌ها اولین نشانه">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-note-49">نخستین قدم روی تپه‌ها</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۸۶/۰۷/۰۴</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> اولین نشانه</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="در آینه‌ی خوابی دور رویای مبهم">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-14040903-note">در آینه‌ی خوابی دور</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۸۶/۱۱/۰۵</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> رویای مبهم</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item poem" data-search="دیگه بیدار شدم شعر">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-book"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-14040901-poem">دیگه بیدار شدم</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۸۶/۰۶/۱۹</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> شعر</span>
+              </span>
+            </div>
+          </li>
+<li class="archive-item" data-search="آمدم که بنویسم شروعی عجیب">
+            <span class="archive-type-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-feather"></use></svg></span>
+            <div class="archive-texts">
+              <a href="index.html#post-14040903-note-1">آمدم که بنویسم</a>
+              <span class="archive-sub">
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-calendar"></use></svg> ۱۳۸۶/۰۶/۱۸</span>
+                <span><svg class="icon" viewBox="0 0 24 24" width="12" height="12"><use href="#icon-tag"></use></svg> شروعی عجیب</span>
+              </span>
+            </div>
+          </li>
         </ul>
       </section>
 
@@ -80,60 +974,10 @@
 </div>
 
 <button class="back-to-top" id="backToTop" type="button" aria-label="بازگشت به بالای صفحه">
-  <span>⬆️</span>
-  <span>بالای صفحه</span>
+  <svg class="icon" viewBox="0 0 24 24"><use href="#icon-arrow-up"></use></svg>
+  <span class="label">بالای صفحه</span>
 </button>
 
-<script>
-  (function () {
-    const body = document.body;
-    const toggleBtn = document.getElementById("themeToggle");
-    const themeText = document.getElementById("themeText");
-
-    function applyTheme(theme) {
-      if (theme === "dark") {
-        body.classList.add("dark");
-        themeText.textContent = "حالت تاریک";
-      } else {
-        body.classList.remove("dark");
-        themeText.textContent = "حالت روشن";
-      }
-    }
-
-    const savedTheme = localStorage.getItem("diary-theme");
-    if (savedTheme === "dark" || savedTheme === "light") {
-      applyTheme(savedTheme);
-    } else {
-      const prefersDark = window.matchMedia &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches;
-      applyTheme(prefersDark ? "dark" : "light");
-    }
-
-    toggleBtn.addEventListener("click", function () {
-      const currentIsDark = body.classList.contains("dark");
-      const newTheme = currentIsDark ? "light" : "dark";
-      applyTheme(newTheme);
-      localStorage.setItem("diary-theme", newTheme);
-    });
-  })();
-
-  (function () {
-    const backBtn = document.getElementById("backToTop");
-
-    window.addEventListener("scroll", function () {
-      if (window.scrollY > 200) {
-        backBtn.classList.add("show");
-      } else {
-        backBtn.classList.remove("show");
-      }
-    });
-
-    backBtn.addEventListener("click", function () {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-  })();
-</script>
-
+<script src="app.js" defer></script>
 </body>
 </html>
-
